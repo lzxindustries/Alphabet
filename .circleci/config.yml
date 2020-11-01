@@ -1,13 +1,19 @@
 version: 2.1
+orbs:
+  win: circleci/windows@2.2.0
+
+
 workflows:
-  build_and_test:
+  build_and_package:
     jobs:
-      - build:
+      - build-linux:
           context:
             - org-global
-
+      - build-windows:
+          context:
+            - org-global
 jobs:
-  build:
+  build-linux:
     docker:
       - image: creatorlars/lzxembedded-base:V0.1
         auth:
@@ -37,10 +43,30 @@ jobs:
             cd build
             cmake ..
             cmake --build . --target bundle
-      - run:
-          name: "Run Script"
-          command: |
-            ls -l
       - store_artifacts:
           path: /root/project/build
           
+  build-windows:
+    executor: win/default
+    steps:
+      - checkout
+      - run: 
+        name: "Install Qt"
+        command: |
+          cinst --no-progress -y 7zip
+          pip install aqtinstall
+          python -m aqt 5.12.1 windows desktop win64_msvc2017_64
+
+      - run:
+          name: "Update Submodules"
+          command: |
+            git submodule update --init --recursive --merge .
+      - run:
+          name: "CMake"
+          command: |
+            mkdir build
+            cd build
+            cmake ..
+            cmake --build . --target bundle
+      - store_artifacts:
+          path: /root/project/build
