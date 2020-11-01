@@ -26,27 +26,27 @@ jobs:
       - run:
           name: "Install Qt5"
           command: |
-          apt-get install -y -q qtbase5-dev qt5-style-plugins 
+            apt-get install -y -q qtbase5-dev qt5-style-plugins 
       - run:
           name: "Deployt Qt5"
           command: |
-          wget -q -O linuxdeployqt https://github.com/probonopd/linuxdeployqt/releases/download/7/linuxdeployqt-7-x86_64.AppImage
-          install linuxdeployqt /usr/local/bin/
+            wget -q -O linuxdeployqt https://github.com/probonopd/linuxdeployqt/releases/download/7/linuxdeployqt-7-x86_64.AppImage
+            install linuxdeployqt /usr/local/bin/
       - run:
           name: "Update and init all git submodules"
           command: |
-          git submodule update --init --recursive --merge .
+            git submodule update --init --recursive --merge .
       - run:
           name: "Build all"
           command: |
-          mkdir build
-          cd build
-          cmake ..
-          cmake --build .
+            mkdir build
+            cd build
+            cmake ..
+            cmake --build .
       - run:
           name: "Package all"
           command: |
-          cpack ..
+            cpack ..
       - store_artifacts:
           path: /root/project/build
           
