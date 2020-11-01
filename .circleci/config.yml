@@ -39,7 +39,8 @@ jobs:
       - run:
           name: "CMake Build"
           command: |
-            cmake --build . --target bundle
+            cmake --build . 
+            cmake --target bundle
       - run:
           name: "Run Script"
           command: |
