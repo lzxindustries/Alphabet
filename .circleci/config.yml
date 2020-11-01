@@ -19,11 +19,11 @@ jobs:
           name: "echo environment variables from org-global context"
           command: echo $DOCKER_USERNAME
       - run: |
-          sudo apt-get -q update
-          sudo apt-get install -y -q cmake ninja-build make g++ rpm p7zip-full
-          sudo apt-get install -y -q qtbase5-dev qt5-style-plugins
+          apt-get -q update
+          apt-get install -y -q cmake ninja-build make g++ rpm p7zip-full
+          apt-get install -y -q qtbase5-dev qt5-style-plugins
           wget -q -O linuxdeployqt https://github.com/probonopd/linuxdeployqt/releases/download/$(linuxdeployqtVersion)/linuxdeployqt-$(linuxdeployqtVersion)-x86_64.AppImage
-          sudo install linuxdeployqt /usr/local/bin/
+          install linuxdeployqt /usr/local/bin/
           git submodule update --init --recursive --merge .
           mkdir build
           cd build
@@ -33,6 +33,3 @@ jobs:
       - store_artifacts:
           path: /root/project/build
           
-      - store_artifacts:
-          path: /root/project/build
-
