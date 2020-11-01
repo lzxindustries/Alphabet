@@ -24,9 +24,12 @@ jobs:
             apt-get -q update
             apt-get install -y -q cmake ninja-build make g++ rpm p7zip-full
       - run:
-          name: "Install and deploy Qt5"
+          name: "Install Qt5"
           command: |
-          apt-get install -y -q qtbase5-dev qt5-style-plugins
+          apt-get install -y -q qtbase5-dev qt5-style-plugins 
+      - run:
+          name: "Deployt Qt5"
+          command: |
           wget -q -O linuxdeployqt https://github.com/probonopd/linuxdeployqt/releases/download/7/linuxdeployqt-7-x86_64.AppImage
           install linuxdeployqt /usr/local/bin/
       - run:
