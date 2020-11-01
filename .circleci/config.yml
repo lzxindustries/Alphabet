@@ -51,11 +51,11 @@ jobs:
     steps:
       - checkout
       - run: 
-        name: "Install Qt"
-        command: |
-          cinst --no-progress -y 7zip
-          pip install aqtinstall
-          python -m aqt 5.12.1 windows desktop win64_msvc2017_64
+          name: "Install Qt"
+          command: |
+            cinst --no-progress -y 7zip
+            pip install aqtinstall
+            python -m aqt 5.12.1 windows desktop win64_msvc2017_64
 
       - run:
           name: "Update Submodules"
