@@ -16,37 +16,34 @@ jobs:
     steps:
       - checkout
       - run:
-          name: 
-          command: echo $DOCKER_USERNAME
-      - run:
-          name: "Update build environment"
+          name: "Update Build Environment"
           command: |
             apt-get -q update
             apt-get install -y -q cmake ninja-build make g++ rpm p7zip-full
       - run:
           name: "Install Qt5"
           command: |
-            apt-get install -y -q qtbase5-dev qt5-style-plugins 
-      - run:
-          name: "Deploy Qt5"
-          command: |
+            apt-get install -y -q qtbase5-dev qt5-style-plugins
             wget -q -O linuxdeployqt https://github.com/probonopd/linuxdeployqt/releases/download/7/linuxdeployqt-7-x86_64.AppImage
             install linuxdeployqt /usr/local/bin/
       - run:
-          name: "Update and init all git submodules"
+          name: "Update Submodules"
           command: |
             git submodule update --init --recursive --merge .
       - run:
-          name: "Build all"
+          name: "CMake Configure"
           command: |
             mkdir build
             cd build
             cmake ..
-            cmake --build .
       - run:
-          name: "Package all"
+          name: "CMake Build"
           command: |
-            cpack ..
+            cmake --build . --target bundle
+      - run:
+          name: "Run Script"
+          command: |
+            ls -l
       - store_artifacts:
           path: /root/project/build
           
