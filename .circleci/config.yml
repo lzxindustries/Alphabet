@@ -16,20 +16,34 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "echo environment variables from org-global context"
+          name: 
           command: echo $DOCKER_USERNAME
-      - run: |
-          apt-get -q update
-          apt-get install -y -q cmake ninja-build make g++ rpm p7zip-full
+      - run:
+          name: "Update build environment"
+          command: |
+            apt-get -q update
+            apt-get install -y -q cmake ninja-build make g++ rpm p7zip-full
+      - run:
+          name: "Install and deploy Qt5"
+          command: |
           apt-get install -y -q qtbase5-dev qt5-style-plugins
-          wget -q -O linuxdeployqt https://github.com/probonopd/linuxdeployqt/releases/download/$(linuxdeployqtVersion)/linuxdeployqt-$(linuxdeployqtVersion)-x86_64.AppImage
+          wget -q -O linuxdeployqt https://github.com/probonopd/linuxdeployqt/releases/download/7/linuxdeployqt-7-x86_64.AppImage
           install linuxdeployqt /usr/local/bin/
+      - run:
+          name: "Update and init all git submodules"
+          command: |
           git submodule update --init --recursive --merge .
+      - run:
+          name: "Build all"
+          command: |
           mkdir build
           cd build
           cmake ..
           cmake --build .
-
+      - run:
+          name: "Package all"
+          command: |
+          cpack ..
       - store_artifacts:
           path: /root/project/build
           
