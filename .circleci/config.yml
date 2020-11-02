@@ -36,8 +36,11 @@ jobs:
           name: "Publish Release on GitHub"
           command: |
             go get github.com/tcnksm/ghr
-            VERSION="0.1.0"
-            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./artifacts/
+            echo ${GITHUB_TOKEN}
+            echo ${CIRCLE_PROJECT_USERNAME}
+            echo ${CIRCLE_PROJECT_REPONAME}
+            echo ${CIRCLE_SHA1}
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete v0.1.0 ./artifacts/
   build-macos:
     macos:
       xcode: 11.6.0
