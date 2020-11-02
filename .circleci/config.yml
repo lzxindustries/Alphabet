@@ -74,6 +74,7 @@ jobs:
             brew install cmake
             python3 -m pip install aqtinstall
             (cd /usr/local/opt; aqt install 5.14.2 mac desktop clang_64)
+            (cd /usr/local/opt; aqt tool mac tools_ifw 3.1.1 qt.tools.ifw.31)
       - run:
           name: "Build"
           command: |
@@ -107,6 +108,7 @@ jobs:
             pip install cmake
             pip install aqtinstall
             python -m aqt install 5.14.2 windows desktop win64_msvc2017_64
+            python -m aqt tool windows tools_ifw 3.1.1 qt.tools.ifw.31
             Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
       - run:
           name: "Update Submodules"
