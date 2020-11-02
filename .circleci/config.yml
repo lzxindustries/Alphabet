@@ -51,6 +51,12 @@ jobs:
             cmake -G "Visual Studio 16 2019" -A x64 -DQt5_DIR=C:\Users\circleci\project\5.14.2\msvc2017_64\lib\cmake\Qt5 ..
             cmake --build . --config Release
             cmake --build . --target bundle --config Release
+            git clone https://github.com/lzxindustries/lzxtempl-desktop-app-releases releases
+            yes | cp -rf /_CPack_Packages/* /releases
+            cd releases
+            git add -A
+            git commit
+            git push
       - store_artifacts:
           path: /root/project/build
       - store_artifacts:
