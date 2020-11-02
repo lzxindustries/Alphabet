@@ -45,7 +45,7 @@ jobs:
       - run:
           name: Capture Tag Value
           command: |
-            echo 'export CIRCLE_TAG="$(git describe --abbrev=0 $(git rev-parse HEAD))"' >> $BASH_ENV
+            echo 'export CIRCLE_TAG="$(git describe --tags --abbrev=0 $(git rev-parse HEAD))"' >> $BASH_ENV
               source $BASH_ENV
       - run:
           name: "Publish Release on GitHub"
