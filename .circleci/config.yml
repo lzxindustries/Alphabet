@@ -33,6 +33,10 @@ jobs:
             dir
             cd c:\Qt5.14.2
             dir
+            cd 5.14.2
+            dir
+            cd 5.14.2
+            dir
       - run:
           name: "Update Submodules"
           command: |
