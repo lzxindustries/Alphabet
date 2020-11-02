@@ -49,6 +49,8 @@ jobs:
           command: |
             xcodebuild -version
             brew install p7zip
+            brew install python
+            brew install cmake
             pip install aqtinstall
             (cd /usr/local/opt; aqtinst 5.14.2 mac desktop clang_64)
             cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DQt5_DIR=/usr/local/opt/Qt5.14.2/5.14.2/clang_64/lib/cmake/Qt5/ ..
