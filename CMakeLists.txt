@@ -1,14 +1,6 @@
 cmake_minimum_required (VERSION 3.10)
 
-cmake_policy(SET CMP0042 NEW)
-
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules/")
-
-project(AppTemplate 
-        DESCRIPTION "LZX Industries Application"
-        LANGUAGES C CXX)
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include_directories(include)
 include(GetGitRevisionDescription)
 
@@ -19,16 +11,24 @@ string(REGEX REPLACE "^v[0-9]+\\.([0-9]+).*" "\\1" VERSION_MINOR "${VERSION}")
 string(REGEX REPLACE "^v[0-9]+\\.[0-9]+\\.([0-9]+).*" "\\1" VERSION_PATCH "${VERSION}")
 string(REGEX REPLACE "^v[0-9]+\\.[0-9]+\\.[0-9]+(.*)" "\\1" VERSION_SHA1 "${VERSION}")
 set(VERSION_SHORT "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
-message(WARNING "${VERSION_MAJOR}")
-message(WARNING "${VERSION_MINOR}")
-message(WARNING "${VERSION_PATCH}")
+message(WARNING "${VERSION_SHORT}")
+
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/version.cpp.in
                 ${CMAKE_CURRENT_BINARY_DIR}/version.cpp)
 set(version_file "${CMAKE_CURRENT_BINARY_DIR}/version.cpp")
 set(source_files "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp")
 
+cmake_policy(SET CMP0042 NEW)
 
+
+
+project(AppTemplate 
+        VERSION "${VERSION_SHORT}"
+        DESCRIPTION "LZX Industries Application"
+        LANGUAGES C CXX)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ## Default Qt5 path
 if(WIN32)
