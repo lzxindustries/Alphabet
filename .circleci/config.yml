@@ -87,7 +87,7 @@ jobs:
             mkdir releases
             cp ./*.tar.bz2 ./releases
             cp ./*.dmg ./releases
-            cp ./*.app ./releases
+
       - persist_to_workspace:
           root: /Users/distiller/project/
           paths:
@@ -130,7 +130,8 @@ jobs:
             mkdir releases
             cp ./*.zip ./releases
             cp ./*.exe ./releases
-            cd _CPack
+            cd _CPackPackages
+            dir
 
       - persist_to_workspace:
           root: C:\Users\circleci\project\build\
