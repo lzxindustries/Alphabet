@@ -158,4 +158,4 @@ jobs:
       - persist_to_workspace:
           root: /root/project
           paths:
-            - releases
+            - build/releases
