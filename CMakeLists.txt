@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ## Default Qt5 path
 if(WIN32)
-  set(Qt5_DIR "C:\Users\circleci\project\5.14.2\msvc2017_64\lib\cmake\Qt5" CACHE PATH "directory where Qt5Config.cmake exists.")
+  set(Qt5_DIR "C:/Users/circleci/project/5.14.2/msvc2017_64/lib/cmake/Qt5" CACHE PATH "directory where Qt5Config.cmake exists.")
 elseif(APPLE)
   set(Qt5_DIR "/usr/local/Cellar/qt/5.14.2/clang_64/lib/cmake/Qt5/" CACHE PATH "directory where Qt5Config.cmake exists.")
 else()
