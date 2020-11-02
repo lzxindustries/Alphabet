@@ -23,7 +23,6 @@ jobs:
             cinst --no-progress -y 7zip
             pip install aqtinstall
             python -m aqt install 5.14.2 windows desktop win64_msvc2017_64
-            vcpkg integrate install
       - run:
           name: "Update Submodules"
           command: |
