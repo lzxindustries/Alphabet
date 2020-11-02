@@ -101,10 +101,10 @@ jobs:
       - persist_to_workspace:
           # Must be an absolute path, or relative path from working_directory. This is a directory on the container which is 
           # taken to be the root directory of the workspace.
-          root: /
+          root: C:\Users\circleci\project
           # Must be relative path from root
           paths:
-            - C:\Users\circleci\project\build
+            - build
 
   build-linux:
     docker:
@@ -143,7 +143,7 @@ jobs:
       - persist_to_workspace:
           # Must be an absolute path, or relative path from working_directory. This is a directory on the container which is 
           # taken to be the root directory of the workspace.
-          root: /
+          root: /root/project
           # Must be relative path from root
           paths:
-            - /root/project/build
+            - build
