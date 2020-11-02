@@ -1,11 +1,10 @@
 version: 2.1
 orbs:
   win: circleci/windows@2.2.0
-  
+
 workflows:
   publish:
     jobs:
-    
       - build-linux:
           context:
             - org-global
@@ -32,8 +31,8 @@ workflows:
             - org-global
       - build-macos:
           context:
-            - org-global          
-            
+            - org-global
+
 jobs:
   publish-github-release:
     docker:
@@ -48,13 +47,6 @@ jobs:
             echo 'export CIRCLE_TAG="$(git describe --tags --abbrev=0 $(git rev-parse HEAD))"' >> $BASH_ENV
               source $BASH_ENV
             echo "${CIRCLE_TAG}"
-            dir
-            cd build
-            dir
-            cd build
-            dir
-            rm -v "!(*.deb|*.rpm|*.zip)"
-            dir
       - run:
           name: "Publish Release on GitHub"
           command: |
@@ -65,14 +57,13 @@ jobs:
                 -c "${CIRCLE_SHA1}" \
                 -delete \
                 "${CIRCLE_TAG}" build/build/
-                
 
   build-macos:
     macos:
       xcode: 11.6.0
     steps:
       - checkout
-      - run: 
+      - run:
           name: "Install Dependencies"
           command: |
             xcodebuild -version
@@ -81,19 +72,19 @@ jobs:
             brew install cmake
             python3 -m pip install aqtinstall
             (cd /usr/local/opt; aqt install 5.14.2 mac desktop clang_64)
-      - run: 
+      - run:
           name: "Build"
           command: |
             cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DQt5_DIR=/usr/local/opt/5.14.2/clang_64/lib/cmake/Qt5/ .
             cmake --build .
             cmake --build . --target bundle
-            
+            dir
 
   build-windows:
     executor: win/default
     steps:
       - checkout
-      - run: 
+      - run:
           name: "Install Dependencies"
           command: |
             $WebClient = New-Object System.Net.WebClient
@@ -120,14 +111,15 @@ jobs:
             cmake -G "Visual Studio 16 2019" -A x64 -DQt5_DIR=C:\Users\circleci\project\5.14.2\msvc2017_64\lib\cmake\Qt5 ..
             cmake --build . --config Release
             cmake --build . --target bundle --config Release
+            dir
 
-      - store_artifacts:
-          path: C:\Users\circleci\project\build
+      # - store_artifacts:
+      #     path: C:\Users\circleci\project\build
 
-#      - persist_to_workspace:
-#          root: C:\Users\circleci\project
-#          paths:
-#            - build
+  #      - persist_to_workspace:
+  #          root: C:\Users\circleci\project
+  #          paths:
+  #            - build
 
   build-linux:
     docker:
@@ -159,10 +151,8 @@ jobs:
             cd build
             cmake ..
             cmake --build . --target bundle
+            dir
 
-      - store_artifacts:
-          path: /root/project/build
-          
       - persist_to_workspace:
           root: /root/project
           paths:
