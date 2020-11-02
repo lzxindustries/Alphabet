@@ -82,8 +82,8 @@ jobs:
             cmake --build . --target bundle
             ls
             mkdir releases
-            cp ./*Darwin.json ./releases
-            cp ./*Darwin.tar.bz2 ./releases
+            cp ./*.tar.bz2 ./releases
+            cp ./*.dmg ./releases
       - persist_to_workspace:
           root: /Users/distiller/project/
           paths:
@@ -122,7 +122,7 @@ jobs:
             cmake --build . --target bundle --config Release
             dir
             mkdir releases
-            cp ./*win64.zip ./releases
+            cp ./*.zip ./releases
             cp ./*.exe ./releases
 
       - persist_to_workspace:
@@ -163,7 +163,6 @@ jobs:
             dir
             mkdir releases
             cp ./*Linux.deb ./releases
-            cp ./*Linux.json ./releases
             cp ./*Linux.rpm ./releases
             cp ./*Linux.tar.xz ./releases
             cp ./*Linux.tar.bz2 ./releases
