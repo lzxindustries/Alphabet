@@ -49,6 +49,7 @@ jobs:
                 -u "${CIRCLE_PROJECT_USERNAME}" \
                 -r "${CIRCLE_PROJECT_REPONAME}" \
                 -c "${CIRCLE_SHA1}" \
+                -delete \
                 "${CIRCLE_TAG}" build/
   build-macos:
     macos:
@@ -107,13 +108,10 @@ jobs:
       - store_artifacts:
           path: C:\Users\circleci\project\build
 
-      - persist_to_workspace:
-          # Must be an absolute path, or relative path from working_directory. This is a directory on the container which is 
-          # taken to be the root directory of the workspace.
-          root: C:\Users\circleci\project
-          # Must be relative path from root
-          paths:
-            - build
+#      - persist_to_workspace:
+#          root: C:\Users\circleci\project
+#          paths:
+#            - build
 
   build-linux:
     docker:
@@ -149,10 +147,7 @@ jobs:
       - store_artifacts:
           path: /root/project/build
           
-      # - persist_to_workspace:
-      #     # Must be an absolute path, or relative path from working_directory. This is a directory on the container which is 
-      #     # taken to be the root directory of the workspace.
-      #     root: /root/project
-      #     # Must be relative path from root
-      #     paths:
-      #       - build
+      - persist_to_workspace:
+          root: /root/project
+          paths:
+            - build
