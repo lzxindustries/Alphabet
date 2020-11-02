@@ -45,12 +45,8 @@ jobs:
       - run:
           name: Capture Tag Value
           command: |
-            if git describe --exact-match $(git rev-parse HEAD); then
-              echo 'export CIRCLE_TAG="$(git describe --exact-match $(git rev-parse HEAD))"' >> $BASH_ENV
+            echo 'export CIRCLE_TAG="$(git describe --abbrev=0 $(git rev-parse HEAD))"' >> $BASH_ENV
               source $BASH_ENV
-            else
-              echo "$(git rev-parse HEAD) is not a tagged commit."
-            fi
       - run:
           name: "Publish Release on GitHub"
           command: |
@@ -62,7 +58,7 @@ jobs:
                 -delete \
                 "${CIRCLE_TAG}" build/
                 
-                
+
   build-macos:
     macos:
       xcode: 11.6.0
