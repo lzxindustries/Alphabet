@@ -31,7 +31,7 @@ jobs:
       - image: circleci/golang:latest
     steps:
       - attach_workspace:
-          at: artifacts
+          at: build
       - run:
           name: "Publish Release on GitHub"
           command: |
@@ -40,7 +40,9 @@ jobs:
             echo ${CIRCLE_PROJECT_USERNAME}
             echo ${CIRCLE_PROJECT_REPONAME}
             echo ${CIRCLE_SHA1}
-            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} v0.1.0
+            VERSION=$"v0.1.0"
+            echo ${VERSION}
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} build
   build-macos:
     macos:
       xcode: 11.6.0
