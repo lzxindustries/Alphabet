@@ -81,6 +81,13 @@ jobs:
             cmake --build .
             cmake --build . --target bundle
             ls
+            mkdir releases
+            cp ./*Darwin.json ./releases
+            cp ./*Darwin.tar.bz2 ./releases
+      - persist_to_workspace:
+          root: /Users/distiller/project/
+          paths:
+            - releases
 
   build-windows:
     executor: win/default
