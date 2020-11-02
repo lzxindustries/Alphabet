@@ -50,7 +50,6 @@ jobs:
                 -r "${CIRCLE_PROJECT_REPONAME}" \
                 -c "${CIRCLE_SHA1}" \
                 "${CIRCLE_TAG}" build/
-
   build-macos:
     macos:
       xcode: 11.6.0
