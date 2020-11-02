@@ -56,7 +56,7 @@ jobs:
                 -r "${CIRCLE_PROJECT_REPONAME}" \
                 -c "${CIRCLE_SHA1}" \
                 -delete \
-                "${CIRCLE_TAG}" build/build/
+                "${CIRCLE_TAG}" build/releases/
 
   build-macos:
     macos:
@@ -150,10 +150,13 @@ jobs:
             cd build
             cmake ..
             cmake --build . --target bundle
-            rm !{*-Linux.deb|*-Linux.json|*-Linux.rpm|*-Linux.tar.bz2|*-Linux.tar.xz}
             dir
-
+            mkdir releases
+            cp ./*Linux.deb ./releases
+            cp ./*Linux.npm ./releases
+            cp ./*Linux.tar.gz ./releases
+            cp ./*Linux.tar.7z ./releases
       - persist_to_workspace:
           root: /root/project
           paths:
-            - build
+            - releases
