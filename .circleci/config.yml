@@ -111,14 +111,12 @@ jobs:
             cmake --build . --config Release
             cmake --build . --target bundle --config Release
             dir
-
-      # - store_artifacts:
-      #     path: C:\Users\circleci\project\build
-
+            mkdir releases
+  #            cp ./*.exe ./releases
   #      - persist_to_workspace:
   #          root: C:\Users\circleci\project
   #          paths:
-  #            - build
+  #            - build/releases
 
   build-linux:
     docker:
@@ -153,9 +151,10 @@ jobs:
             dir
             mkdir releases
             cp ./*Linux.deb ./releases
-            cp ./*Linux.npm ./releases
+            cp ./*Linux.json ./releases
+            cp ./*Linux.rpm ./releases
             cp ./*Linux.tar.gz ./releases
-            cp ./*Linux.tar.7z ./releases
+            cp ./*Linux.tar.bz2 ./releases
       - persist_to_workspace:
           root: /root/project
           paths:
