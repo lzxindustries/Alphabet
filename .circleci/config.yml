@@ -36,11 +36,15 @@ workflows:
             
 jobs:
   publish-github-release:
+ 
     docker:
       - image: circleci/golang:latest
     steps:
       - attach_workspace:
           at: ./build
+      - capture-tag:
+          working_directory: ~/project
+          checkout: false
       - run:
           name: "Publish Release on GitHub"
           command: |
