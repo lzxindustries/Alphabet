@@ -98,6 +98,14 @@ jobs:
       - store_artifacts:
           path: C:\Users\circleci\project\build
 
+      - persist_to_workspace:
+          # Must be an absolute path, or relative path from working_directory. This is a directory on the container which is 
+          # taken to be the root directory of the workspace.
+          root: /
+          # Must be relative path from root
+          paths:
+            - C:\Users\circleci\project\build
+
   build-linux:
     docker:
       - image: creatorlars/lzxembedded-base:V0.1
@@ -132,3 +140,10 @@ jobs:
       - store_artifacts:
           path: /root/project/build
           
+      - persist_to_workspace:
+          # Must be an absolute path, or relative path from working_directory. This is a directory on the container which is 
+          # taken to be the root directory of the workspace.
+          root: /
+          # Must be relative path from root
+          paths:
+            - /root/project/build
