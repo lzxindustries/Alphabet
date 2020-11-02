@@ -53,7 +53,8 @@ jobs:
             dir
             cd build
             dir
-
+            rm -i !(Example-*)
+            dir
       - run:
           name: "Publish Release on GitHub"
           command: |
@@ -63,7 +64,7 @@ jobs:
                 -r "${CIRCLE_PROJECT_REPONAME}" \
                 -c "${CIRCLE_SHA1}" \
                 -delete \
-                "${CIRCLE_TAG}" build/
+                "${CIRCLE_TAG}" build/build/
                 
 
   build-macos:
