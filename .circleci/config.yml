@@ -142,6 +142,7 @@ jobs:
           name: "Update Build Environment"
           command: |
             apt-get -q update
+            apt-get install -y libfuse-dev
             apt-get install -y -q cmake ninja-build make g++ rpm p7zip-full
       - run:
           name: "Install Dependencies"
