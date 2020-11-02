@@ -34,9 +34,10 @@ jobs:
 #      filters:
 #        tags:
 #          only: /^\d+\.\d+\.\d+$/
-  # publish-github-release:
-  #   requires:
-  #     - build
+  publish-github-release:
+    requires:
+      - build-windows
+      - build-linux
   #   filters:
   #     branches:
   #       ignore: /.*/
