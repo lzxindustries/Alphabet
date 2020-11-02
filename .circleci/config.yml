@@ -35,10 +35,9 @@ jobs:
       - run:
           name: "Publish Release on GitHub"
           command: |
-            git config --global user.name "Lars Larsen"
-            git config --global user.email lars@lzxindustries.net
             go get github.com/tcnksm/ghr
-            ghr v0.1.0 ./artifacts/
+            VERSION=v0.1.0
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./artifacts/
   build-macos:
     macos:
       xcode: 11.6.0
