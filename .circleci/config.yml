@@ -150,6 +150,7 @@ jobs:
             cd build
             cmake ..
             cmake --build . --target bundle
+            rm !(*-Linux.deb|*-Linux.json|*-Linux.rpm|*-Linux.tar.bz2|*-Linux.tar.xz)
             dir
 
       - persist_to_workspace:
