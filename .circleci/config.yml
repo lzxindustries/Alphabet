@@ -6,6 +6,10 @@ orbs:
 workflows:
   publish:
     jobs:
+    
+      - capture-tag:
+          working_directory: ~/project
+          checkout: false
       - build-linux:
           context:
             - org-global
@@ -19,6 +23,7 @@ workflows:
           context:
             - org-global
           requires:
+            - capture-tag
             - build-linux
             - build-windows
             - build-macos
@@ -42,9 +47,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ./build
-      - capture-tag:
-          working_directory: ~/project
-          checkout: false
       - run:
           name: "Publish Release on GitHub"
           command: |
