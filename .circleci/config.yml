@@ -102,16 +102,20 @@ jobs:
           command: |
             $WebClient = New-Object System.Net.WebClient
             $WebClient.DownloadFile("https://aka.ms/vs/16/release/vs_community.exe","C:\vs_community.exe")
-            $WebClient.DownloadFile("http://download.qt.io/official_releases/qt-installer-framework/3.2.2/qt-installer-framework-opensource-src-3.2.2.zip","C:\qtifw.exe")
-
-
-            $sourceNugetExe = "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
-            $targetNugetExe = "$rootPath\nuget.exe"
-            Invoke-WebRequest $sourceNugetExe -OutFile $targetNugetExe
-            Set-Alias nuget $targetNugetExe -Scope Global -Verbose
-            C:\vs_community.exe --add Microsoft.VisualStudio.Workload.NetWeb --quiet --wait --norestart --noUpdateInstaller
-            C:\qtifw.exe
+            $WebClient.DownloadFile("http://download.qt.io/official_releases/qt-installer-framework/3.2.2/qt-installer-framework-opensource-src-3.2.2.zip","C:\qtifw.zip")
             cinst --no-progress -y 7zip
+            C:\vs_community.exe --add Microsoft.VisualStudio.Workload.NetWeb --quiet --wait --norestart --noUpdateInstaller
+            mkdir Qt
+            cd Qt
+            mkdir QtIFW3.2.2
+            cd ..
+            cd ..
+
+            Expand-Archive -LiteralPath C:\qtifw.zip -DestinationPath C:\Qt\QtIFW3.2.2
+            cd Qt
+            cd QtIFW3.2.2
+            dir
+
             pip install cmake
             pip install distbuilder
             pip install aqtinstall
