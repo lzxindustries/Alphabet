@@ -35,16 +35,13 @@ workflows:
             - org-global          
             
 jobs:
-  capture-github-tag:
-    steps:
-
-
   publish-github-release:
- 
     docker:
       - image: circleci/golang:latest
     steps:
       - checkout
+      - attach_workspace:
+          at: ./build
       - run:
           name: Capture Tag Value
           command: |
@@ -54,8 +51,6 @@ jobs:
             else
               echo "$(git rev-parse HEAD) is not a tagged commit."
             fi
-      - attach_workspace:
-          at: ./build
       - run:
           name: "Publish Release on GitHub"
           command: |
