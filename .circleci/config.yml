@@ -65,6 +65,8 @@ jobs:
           command: |
             $WebClient = New-Object System.Net.WebClient
             $WebClient.DownloadFile("https://aka.ms/vs/16/release/vs_community.exe","C:\vs_community.exe")
+            $WebClient.DownloadFile("https://dist.nuget.org/win-x86-commandline/latest/nuget.exe","C:\nuget.exe")
+            C:\nuget.exe
             C:\vs_community.exe --add Microsoft.VisualStudio.Workload.NetWeb --quiet --wait --norestart --noUpdateInstaller
             cinst --no-progress -y 7zip
             pip install cmake
