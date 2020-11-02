@@ -37,9 +37,9 @@ jobs:
           name: "Build & Package Project"
           command: |
             cd build
-            cmake -G "Visual Studio 16 2019" -A x64 -DQt5_DIR=C:\Qt5.14.2\5.14.2\msvc2017_64\lib\cmake\Qt5 ..
-            cmake --build -DQt5_DIR=C:\Qt5.14.2\5.14.2\msvc2017_64\lib\cmake\Qt5 . --config Release
-            cmake --build -DQt5_DIR=C:\Qt5.14.2\5.14.2\msvc2017_64\lib\cmake\Qt5 . --target bundle --config Release
+            cmake -G "Visual Studio 16 2019" -A x64 -DQt5_DIR=.\Qt5.14.2\5.14.2\msvc2017_64\lib\cmake\Qt5 ..
+            cmake --build . --config Release
+            cmake --build . --target bundle --config Release
       - store_artifacts:
           path: /root/project/build
 
@@ -78,3 +78,31 @@ jobs:
           
 
 
+# - job: macOS
+#   pool:
+#     vmImage: 'macOS-10.13'
+#   steps:
+#     - task: UsePythonVersion@0
+#       inputs:
+#         versionSpec: '3.x'
+#     - script: |
+#         brew install p7zip
+#         pip install aqtinstall
+#         (cd /usr/local/opt; aqtinst 5.12.1 mac desktop clang_64)
+#       displayName: install qt
+#     - task: CMake@1
+#       displayName: configure
+#       inputs:
+#         workingDirectory: '$(Build.BinariesDirectory)/build'
+#         cmakeArgs: -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DQt5_DIR=/usr/local/opt/Qt5.12.1/5.12.1/clang_64/lib/cmake/Qt5/ $(Build.SourcesDirectory)
+#     - task: CMake@1
+#       displayName: build
+#       inputs:
+#         workingDirectory: '$(Build.BinariesDirectory)/build'
+#         cmakeArgs: --build $(Build.BinariesDirectory)/build
+#     - task: CMake@1
+#       displayName: build
+#       inputs:
+#         workingDirectory: '$(Build.BinariesDirectory)/build'
+#         cmakeArgs: --build $(Build.BinariesDirectory)/build --target bundle
+#     - script: ls -l $(Build.BinariesDirectory)/build
