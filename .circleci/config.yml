@@ -72,7 +72,9 @@ jobs:
             brew install p7zip
             brew install python
             brew install cmake
+            python3 -m pip install distbuilder
             python3 -m pip install aqtinstall
+
             (cd /usr/local/opt; aqt install 5.14.2 mac desktop clang_64)
             (cd /usr/local/opt; aqt tool mac tools_ifw 3.1.1 qt.tools.ifw.31)
       - run:
@@ -85,6 +87,7 @@ jobs:
             mkdir releases
             cp ./*.tar.bz2 ./releases
             cp ./*.dmg ./releases
+            cp ./*.app ./releases
       - persist_to_workspace:
           root: /Users/distiller/project/
           paths:
@@ -106,6 +109,7 @@ jobs:
             C:\vs_community.exe --add Microsoft.VisualStudio.Workload.NetWeb --quiet --wait --norestart --noUpdateInstaller
             cinst --no-progress -y 7zip
             pip install cmake
+            pip install distbuilder
             pip install aqtinstall
             python -m aqt install 5.14.2 windows desktop win64_msvc2017_64
             python -m aqt tool windows tools_ifw 3.1.1 qt.tools.ifw.31
@@ -126,6 +130,7 @@ jobs:
             mkdir releases
             cp ./*.zip ./releases
             cp ./*.exe ./releases
+            cd _CPack
 
       - persist_to_workspace:
           root: C:\Users\circleci\project\build\
@@ -146,6 +151,8 @@ jobs:
             apt-get -q update -y
             apt-get install -y libfuse-dev
             apt-get install -y -q cmake ninja-build make g++ rpm p7zip-full
+            apt-get install python3.8d python3-pip
+            pip install distbuilder
       - run:
           name: "Install Dependencies"
           command: |
