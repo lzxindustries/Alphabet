@@ -1,7 +1,8 @@
 cmake_minimum_required (VERSION 3.10)
 
 cmake_policy(SET CMP0042 NEW)
-set(CMAKE_MODULE_PATH "/cmake/modules")
+
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules/")
 
 project(AppTemplate 
         DESCRIPTION "LZX Industries Application"
@@ -65,13 +66,13 @@ elseif(APPLE)
     set_target_properties(${target}
                           PROPERTIES
                           MACOSX_BUNDLE_BUNDLE_NAME "${PROJECT_NAME}"
-                          MACOSX_BUNDLE_INFO_STRING "${PROJECT_NAME} Copyright (c) 2020 sales@lzxindustries.net"
+                          MACOSX_BUNDLE_INFO_STRING "${PROJECT_NAME} Copyright (c) 2020 LZX Industries LLC"
                           MACOSX_BUNDLE_ICON_FILE Icon.icns
                           MACOSX_BUNDLE_GUI_IDENTIFIER "${PROJECT_NAME}"
                           MACOSX_BUNDLE_LONG_VERSION_STRING "${PROJECT_VERSION}"
                           MACOSX_BUNDLE_SHORT_VERSION_STRING "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}"
                           MACOSX_BUNDLE_BUNDLE_VERSION "${PROJECT_VERSION}"
-                          MACOSX_BUNDLE_COPYRIGHT "Copyright (c) 2020 sales@lzxindustries.net"
+                          MACOSX_BUNDLE_COPYRIGHT "Copyright (c) 2020 LZX Industries LLC"
                           )
 endif()
 
