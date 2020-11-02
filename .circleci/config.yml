@@ -141,7 +141,7 @@ jobs:
       - run:
           name: "Update Build Environment"
           command: |
-            apt-get -q update
+            apt-get -q update -y
             apt-get install -y libfuse-dev
             apt-get install -y -q cmake ninja-build make g++ rpm p7zip-full
       - run:
