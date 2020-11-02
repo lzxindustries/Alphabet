@@ -59,6 +59,7 @@ jobs:
             pip install cmake
             pip install aqtinstall
             python -m aqt install 5.14.2 windows desktop win64_msvc2017_64
+            Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
       - run:
           name: "Update Submodules"
           command: |
