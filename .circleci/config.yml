@@ -9,10 +9,14 @@ workflows:
       - build-linux:
           context:
             - org-global
+            
       - build-windows:
           context:
             - org-global
-
+            
+      - publish-github-release:
+          context:
+            - org-global
             
 jobs:
   publish-github-release:
@@ -59,12 +63,14 @@ jobs:
       - run:
           name: "Build & Package Project"
           command: |
+            mkdir build
+            cd build
             cmake -G "Visual Studio 16 2019" -A x64 -DQt5_DIR=C:\Users\circleci\project\5.14.2\msvc2017_64\lib\cmake\Qt5 ..
             cmake --build . --config Release
             cmake --build . --target bundle --config Release
 
       - store_artifacts:
-          path: C:\Users\circleci\project\build\
+          path: C:\Users\circleci\project\build
 
   build-linux:
     docker:
