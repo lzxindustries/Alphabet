@@ -150,7 +150,7 @@ jobs:
             apt-get install -y -q qtbase5-dev qt5-style-plugins
             wget -q -O linuxdeployqt https://github.com/probonopd/linuxdeployqt/releases/download/7/linuxdeployqt-7-x86_64.AppImage
             install linuxdeployqt /usr/local/bin/
-            wget -q -O https://download.qt.io/official_releases/qt-installer-framework/3.2.2/QtInstallerFramework-linux-x64.run
+            wget -q -O QtInstallerFramework-linux-x64.run https://download.qt.io/official_releases/qt-installer-framework/3.2.2/QtInstallerFramework-linux-x64.run
             chmod +x QtInstallerFramework-linux-x64.run
             ./QtInstallerFramework-linux-x64.run
       - run:
