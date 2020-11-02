@@ -20,8 +20,9 @@ jobs:
       - run: 
           name: "Install Dependencies"
           command: |
-            Invoke-WebRequest -Uri "https://aka.ms/vs/16/release/vs_buildtools.exe" -OutFile "C:\TEMP\vs_buildtools.exe"
-            C:\TEMP\vs_buildtools.exe --quiet --wait --norestart --nocache --installPath C:\BuildTools --add Microsoft.VisualStudio.Workload.AzureBuildTools
+            Invoke-WebRequest -Uri "https://aka.ms/vs/16/release/vs_buildtools.exe" -OutFile "vs_buildtools.exe"
+            mkdir BuildTools
+            vs_buildtools.exe --quiet --wait --norestart --nocache --installPath C:\BuildTools --add Microsoft.VisualStudio.Workload.AzureBuildTools
             cinst --no-progress -y 7zip
             pip install cmake
             pip install aqtinstall
