@@ -27,6 +27,12 @@ jobs:
             pip install cmake
             pip install aqtinstall
             python -m aqt install 5.14.2 windows desktop win64_msvc2017_64
+            cd C:\Qt
+            dir
+            cd C:
+            dir
+            cd c:\Qt5.14.2
+            dir
       - run:
           name: "Update Submodules"
           command: |
