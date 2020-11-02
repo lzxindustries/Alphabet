@@ -35,6 +35,8 @@ jobs:
             cd 
             cd cmake
             dir
+            cd qt5
+            dir
       - run:
           name: "Update Submodules"
           command: |
@@ -46,7 +48,7 @@ jobs:
             mkdir build
             cd build
             dir
-            cmake -G "Visual Studio 16 2019" -A x64 -DQt5_DIR=5.14.2\msvc2017_64 ..
+            cmake -G "Visual Studio 16 2019" -A x64 -DQt5_DIR=C:\Users\circleci\project\5.14.2\msvc2017_64\lib\cmake\Qt5 ..
             cmake --build . --config Release
             cmake --build . --target bundle --config Release
       - store_artifacts:
