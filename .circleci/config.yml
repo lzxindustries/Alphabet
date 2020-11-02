@@ -15,6 +15,8 @@ workflows:
           context:
             - org-global
       - publish-github-release:
+          context:
+            - org-global
           requires:
             - build-linux
             - build-windows
