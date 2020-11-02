@@ -27,15 +27,13 @@ jobs:
             pip install cmake
             pip install aqtinstall
             python -m aqt install 5.14.2 windows desktop win64_msvc2017_64
-            cd C:\Qt
-            dir
-            cd C:
-            dir
-            cd c:\Qt5.14.2
-            dir
             cd 5.14.2
+            cd msvc2017_64
             dir
-            cd 5.14.2
+            cd lib
+            dir
+            cd 
+            cd cmake
             dir
       - run:
           name: "Update Submodules"
@@ -48,7 +46,7 @@ jobs:
             mkdir build
             cd build
             dir
-            cmake -G "Visual Studio 16 2019" -A x64 -DQt5_DIR=5.14.2\msvc2017_64\lib\cmake\Qt5 ..
+            cmake -G "Visual Studio 16 2019" -A x64 -DQt5_DIR=5.14.2\msvc2017_64 ..
             cmake --build . --config Release
             cmake --build . --target bundle --config Release
       - store_artifacts:
