@@ -1,7 +1,9 @@
 version: 2.1
 orbs:
   win: circleci/windows@2.2.0
-
+deployment:
+  trigger_tag:
+    tag: /.*/
 workflows:
   publish:
     jobs:
@@ -40,7 +42,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: build
+          at: build/releases/
       - run:
           name: Capture Tag Value
           command: |
@@ -112,11 +114,12 @@ jobs:
             cmake --build . --target bundle --config Release
             dir
             mkdir releases
-  #            cp ./*.exe ./releases
-  #      - persist_to_workspace:
-  #          root: C:\Users\circleci\project
-  #          paths:
-  #            - build/releases
+            cp ./*win64.zip ./releases
+
+      - persist_to_workspace:
+          root: C:\Users\circleci\project
+          paths:
+            - build/releases
 
   build-linux:
     docker:
