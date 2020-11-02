@@ -1,7 +1,6 @@
 version: 2.1
 orbs:
   win: circleci/windows@2.2.0
-orbs:
   capture-tag: rvla/capture-tag@0.0.2
   
 workflows:
