@@ -41,7 +41,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ./build
+          at: build
       - run:
           name: Capture Tag Value
           command: |
@@ -61,6 +61,7 @@ jobs:
                 -c "${CIRCLE_SHA1}" \
                 -delete \
                 "${CIRCLE_TAG}" build/
+                
   build-macos:
     macos:
       xcode: 11.6.0
