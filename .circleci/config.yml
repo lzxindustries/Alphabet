@@ -153,7 +153,7 @@ jobs:
             cp ./*Linux.deb ./releases
             cp ./*Linux.json ./releases
             cp ./*Linux.rpm ./releases
-            cp ./*Linux.tar.gz ./releases
+            cp ./*Linux.tar.xz ./releases
             cp ./*Linux.tar.bz2 ./releases
       - persist_to_workspace:
           root: /root/project
