@@ -58,10 +58,7 @@ jobs:
             git commit
             git push
       - store_artifacts:
-          path: /root/project/build
-      - store_artifacts:
-          path: aqtinstall.log
-          
+          path: C:\Users\circleci\project\build\
 
   build-linux:
     docker:
