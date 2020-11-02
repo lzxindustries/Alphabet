@@ -126,14 +126,14 @@ if(WIN32 AND NOT UNIX)
     endif()
 
     # NuGet package
-    find_program(NUGET_EXECUTABLE nuget)
-    if(NUGET_EXECUTABLE)
-        list(APPEND CPACK_GENERATOR NuGET)
-        message(STATUS "   + NuGET                               YES ")
-        set(CPACK_NUGET_PACKAGE_NAME "${PROJECT_NAME}")
-    else()
-        message(STATUS "   + NuGET                                NO ")
-    endif()
+    # find_program(NUGET_EXECUTABLE nuget)
+    # if(NUGET_EXECUTABLE)
+    #     list(APPEND CPACK_GENERATOR NuGET)
+    #     message(STATUS "   + NuGET                               YES ")
+    #     set(CPACK_NUGET_PACKAGE_NAME "${PROJECT_NAME}")
+    # else()
+    #     message(STATUS "   + NuGET                                NO ")
+    # endif()
 
     windeployqt(${PROJECT_NAME})
 

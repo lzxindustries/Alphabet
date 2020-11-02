@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.10)
-set(CMAKE_PREFIX_PATH Z:/Qt/5.14.2/msvc2017_64)
+
 cmake_policy(SET CMP0042 NEW)
 project(Example
         VERSION 1.0.0
@@ -10,9 +10,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ## Default Qt5 path
 if(WIN32)
-  set(Qt5_DIR "c:/Qt/Qt5.12.0/5.12.0/msvc2017_64/lib/cmake/Qt5/" CACHE PATH "directory where Qt5Config.cmake exists.")
+  set(Qt5_DIR "C:\Users\circleci\project\5.14.2\msvc2017_64\lib\cmake\Qt5" CACHE PATH "directory where Qt5Config.cmake exists.")
 elseif(APPLE)
-  set(Qt5_DIR "/usr/local/Cellar/qt/5.12.0/clang_64/lib/cmake/Qt5/" CACHE PATH "directory where Qt5Config.cmake exists.")
+  set(Qt5_DIR "/usr/local/Cellar/qt/5.14.2/clang_64/lib/cmake/Qt5/" CACHE PATH "directory where Qt5Config.cmake exists.")
 else()
   set(Qt5_DIR "" CACHE PATH "directory where Qt5Config.cmake exists.")
 endif()
