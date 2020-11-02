@@ -1,15 +1,14 @@
 version: 2.1
 orbs:
   win: circleci/windows@2.2.0
-  capture-tag: rvla/capture-tag@0.0.2
   
 workflows:
   publish:
     jobs:
     
-      - capture-tag:
-          working_directory: ~/project
-          checkout: false
+      - capture-github-tag:
+          context:
+            - org-global
       - build-linux:
           context:
             - org-global
@@ -23,7 +22,7 @@ workflows:
           context:
             - org-global
           requires:
-            - capture-tag
+            - capture-github-tag
             - build-linux
             - build-windows
             - build-macos
@@ -40,6 +39,19 @@ workflows:
             - org-global          
             
 jobs:
+  capture-github-tag:
+    steps:
+      - run:
+          name: Capture Tag Value
+          command: |
+            cd << parameters.working_directory >>
+            if git describe --exact-match $(git rev-parse HEAD); then
+              echo 'export CIRCLE_TAG="$(git describe --exact-match $(git rev-parse HEAD))"' >> $BASH_ENV
+              source $BASH_ENV
+            else
+              echo "$(git rev-parse HEAD) is not a tagged commit."
+            fi
+
   publish-github-release:
  
     docker:
