@@ -80,6 +80,7 @@ jobs:
             cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DQt5_DIR=/usr/local/opt/5.14.2/clang_64/lib/cmake/Qt5/ .
             cmake --build .
             cmake --build . --target bundle
+            ls
 
   build-windows:
     executor: win/default
@@ -115,6 +116,7 @@ jobs:
             dir
             mkdir releases
             cp ./*win64.zip ./releases
+            cp ./*.exe ./releases
 
       - persist_to_workspace:
           root: C:\Users\circleci\project\build\
