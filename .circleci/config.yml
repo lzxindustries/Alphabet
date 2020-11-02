@@ -29,7 +29,7 @@ jobs:
           command: |
             git submodule update --init --recursive --merge .
       - run:
-          name: "CMake"
+          name: "Build & Package Project"
           command: |
             mkdir build
             cd build
@@ -53,7 +53,7 @@ jobs:
             apt-get -q update
             apt-get install -y -q cmake ninja-build make g++ rpm p7zip-full
       - run:
-          name: "Install Qt5"
+          name: "Install Qt"
           command: |
             apt-get install -y -q qtbase5-dev qt5-style-plugins
             wget -q -O linuxdeployqt https://github.com/probonopd/linuxdeployqt/releases/download/7/linuxdeployqt-7-x86_64.AppImage
@@ -63,7 +63,7 @@ jobs:
           command: |
             git submodule update --init --recursive --merge .
       - run:
-          name: "CMake"
+          name: "Build & Package Project"
           command: |
             mkdir build
             cd build
