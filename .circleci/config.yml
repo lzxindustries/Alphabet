@@ -27,7 +27,6 @@ jobs:
             pip install cmake
             pip install aqtinstall
             python -m aqt install 5.14.2 windows desktop win64_msvc2017_64
-            edit aqtinstall.log
       - run:
           name: "Update Submodules"
           command: |
@@ -44,6 +43,8 @@ jobs:
             cmake --build . --target bundle --config Release
       - store_artifacts:
           path: /root/project/build
+      - store_artifacts:
+          path: /root/project/aqtinstall.log
           
 
   build-linux:
