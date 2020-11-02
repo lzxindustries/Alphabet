@@ -44,7 +44,7 @@ jobs:
       - store_artifacts:
           path: /root/project/build
       - store_artifacts:
-          path: /root/project/aqtinstall.log
+          path: aqtinstall.log
           
 
   build-linux:
