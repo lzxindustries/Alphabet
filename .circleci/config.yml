@@ -19,7 +19,6 @@ workflows:
           context:
             - org-global
           requires:
-            - capture-github-tag
             - build-linux
             - build-windows
             - build-macos
