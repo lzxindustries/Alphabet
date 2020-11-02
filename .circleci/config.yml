@@ -104,16 +104,13 @@ jobs:
             $WebClient.DownloadFile("https://aka.ms/vs/16/release/vs_community.exe","C:\vs_community.exe")
             cinst --no-progress -y 7zip
             C:\vs_community.exe --add Microsoft.VisualStudio.Workload.NetWeb --quiet --wait --norestart --noUpdateInstaller
-
-           # $WebClient.DownloadFile("http://download.qt.io/official_releases/qt-installer-framework/3.2.2/qt-installer-framework-opensource-src-3.2.2.zip","C:\qtifw.zip")
-
             pip install cmake
             pip install distbuilder
             pip install aqtinstall
             python -m aqt install 5.14.2 windows desktop win64_msvc2017_64
-            
-            Install-PackageProvider -Name NuGet 
-            
+
+            Install-PackageProvider -Name NuGet
+
       - run:
           name: "Update Submodules"
           command: |
