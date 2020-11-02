@@ -53,6 +53,11 @@ jobs:
             brew install cmake
             python3 -m pip install aqtinstall
             (cd /usr/local/opt; aqt install 5.14.2 mac desktop clang_64)
+      - run: 
+          name: "Build"
+          command: |
+            mkdir build
+            cd ..
             cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DQt5_DIR=/usr/local/opt/Qt5.14.2/5.14.2/clang_64/lib/cmake/Qt5/ ..
             cmake --build .
             cmake --build . --target bundle
