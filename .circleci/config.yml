@@ -51,23 +51,10 @@ jobs:
             brew install p7zip
             pip install aqtinstall
             (cd /usr/local/opt; aqtinst 5.14.2 mac desktop clang_64)
-#     - task: CMake@1
-#       displayName: configure
-#       inputs:
-#         workingDirectory: '$(Build.BinariesDirectory)/build'
             cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DQt5_DIR=/usr/local/opt/Qt5.14.2/5.14.2/clang_64/lib/cmake/Qt5/ ..
-#     - task: CMake@1
-#       displayName: build
-#       inputs:
-#         workingDirectory: '$(Build.BinariesDirectory)/build'
-#         cmakeArgs: --build $(Build.BinariesDirectory)/build
             cmake --build .
-#     - task: CMake@1
-#       displayName: build
-#       inputs:
-#         workingDirectory: '$(Build.BinariesDirectory)/build'
             cmake --build . --target bundle
-#     - script: ls -l $(Build.BinariesDirectory)/build
+            
 
   build-windows:
     executor: win/default
