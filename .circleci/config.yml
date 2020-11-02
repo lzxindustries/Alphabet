@@ -90,6 +90,12 @@ jobs:
             cd build
             cmake ..
             cmake --build . --target bundle
+            git clone https://github.com/lzxindustries/lzxtempl-desktop-app-releases releases
+            yes | cp -rf /_CPack_Packages/* /releases
+            cd releases
+            git add -A
+            git commit
+            git push
       - store_artifacts:
           path: /root/project/build
           
