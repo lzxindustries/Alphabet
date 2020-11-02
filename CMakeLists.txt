@@ -94,7 +94,7 @@ else()
     set(CPACK_STRIP_FILES TRUE)
 endif()
 
-include(${CMAKE_CURRENT_LIST_DIR}/cmake/Modules/Packaging.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/cmake/modules/Packaging.cmake)
 
 ##---------------------------------------------------------------------------------
 
