@@ -51,8 +51,9 @@ jobs:
             dir
             cd build
             dir
-            cd ..
-            
+            cd build
+            dir
+
       - run:
           name: "Publish Release on GitHub"
           command: |
