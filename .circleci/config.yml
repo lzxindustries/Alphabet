@@ -21,9 +21,14 @@ jobs:
           name: "Install Dependencies"
           command: |
             $WebClient = New-Object System.Net.WebClient
-            $WebClient.DownloadFile("https://aka.ms/vs/16/release/vs_buildtools.exe","C:\vs_buildtools.exe")
+            $WebClient.DownloadFile("https://aka.ms/vs/16/release/vs_community.exe","$env:TEMP\vs_community.exe")
+
+            & "$env:TEMP\vs_community.exe" --add Microsoft.VisualStudio.Workload.NetWeb --quiet --wait --norestart --noUpdateInstaller | Out-Default
+            & 'C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe' /version
+
+
             mkdir BuildTools
-            C:\vs_buildtools.exe --quiet --wait --norestart --nocache --installPath C:\BuildTools --add Microsoft.VisualStudio.Workload.AzureBuildTools
+            C:\vs_buildtools.exe --quiet --wait --norestart --nocache --installPath C:\BuildTools
             cinst --no-progress -y 7zip
             pip install cmake
             pip install aqtinstall
