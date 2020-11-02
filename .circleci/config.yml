@@ -42,7 +42,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: build/releases/
+          at: build
       - run:
           name: Capture Tag Value
           command: |
@@ -58,7 +58,7 @@ jobs:
                 -r "${CIRCLE_PROJECT_REPONAME}" \
                 -c "${CIRCLE_SHA1}" \
                 -delete \
-                "${CIRCLE_TAG}" build/releases/
+                "${CIRCLE_TAG}" build/build/releases/
 
   build-macos:
     macos:
@@ -119,7 +119,7 @@ jobs:
       - persist_to_workspace:
           root: C:\Users\circleci\project
           paths:
-            - build/releases
+            - build
 
   build-linux:
     docker:
@@ -161,4 +161,4 @@ jobs:
       - persist_to_workspace:
           root: /root/project
           paths:
-            - build/releases
+            - build
