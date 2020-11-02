@@ -42,6 +42,7 @@ jobs:
             echo ${CIRCLE_SHA1}
             VERSION=$"v0.1.0"
             echo ${VERSION}
+            dir
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} build
   build-macos:
     macos:
