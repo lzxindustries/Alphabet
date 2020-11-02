@@ -21,9 +21,9 @@ jobs:
           name: "Install Dependencies"
           command: |
             $WebClient = New-Object System.Net.WebClient
-            $WebClient.DownloadFile("https://aka.ms/vs/16/release/vs_community.exe","$env:TEMP\vs_community.exe")
+            $WebClient.DownloadFile("https://aka.ms/vs/16/release/vs_community.exe","C:/TEMP/vs_community.exe")
 
-            "$env:TEMP\vs_community.exe" --add Microsoft.VisualStudio.Workload.NetWeb --quiet --wait --norestart --noUpdateInstaller | Out-Default
+            C:/TEMP/vs_community.exe --add Microsoft.VisualStudio.Workload.NetWeb --quiet --wait --norestart --noUpdateInstaller | Out-Default
             C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe /version
 
 
