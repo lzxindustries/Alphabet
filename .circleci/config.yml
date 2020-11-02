@@ -130,7 +130,7 @@ jobs:
             mkdir releases
             cp ./*.zip ./releases
             cp ./*.exe ./releases
-            cd _CPackPackages
+            cd _CPack_Packages
             dir
 
       - persist_to_workspace:
