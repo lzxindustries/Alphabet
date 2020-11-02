@@ -18,8 +18,9 @@ jobs:
     steps:
       - checkout
       - run: 
-          name: "Install Qt"
+          name: "Install Dependencies"
           command: |
+            .\vs_buildtools.exe --add Microsoft.VisualStudio.Workload.VCTools;includeOptional
             cinst --no-progress -y 7zip
             pip install cmake
             pip install aqtinstall
@@ -53,7 +54,7 @@ jobs:
             apt-get -q update
             apt-get install -y -q cmake ninja-build make g++ rpm p7zip-full
       - run:
-          name: "Install Qt"
+          name: "Install Dependencies"
           command: |
             apt-get install -y -q qtbase5-dev qt5-style-plugins
             wget -q -O linuxdeployqt https://github.com/probonopd/linuxdeployqt/releases/download/7/linuxdeployqt-7-x86_64.AppImage
