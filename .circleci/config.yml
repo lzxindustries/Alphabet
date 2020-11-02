@@ -73,7 +73,7 @@ jobs:
             brew install python
             brew install cmake
             python3 -m pip install aqtinstall
-            (cd /usr/local/opt; aqt install 5.14.2 mac desktop clang_64
+            (cd /usr/local/opt; aqt install 5.14.2 mac desktop clang_64)
       - run:
           name: "Build"
           command: |
@@ -106,7 +106,7 @@ jobs:
             cinst --no-progress -y 7zip
             pip install cmake
             pip install aqtinstall
-            python -m aqt install 5.14.2 windows desktop win64_msvc2017_64 tool windows tools_ifw 3.2.2 qt.tools.ifw.32
+            python -m aqt install 5.14.2 windows desktop win64_msvc2017_64
             Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
       - run:
           name: "Update Submodules"
@@ -142,8 +142,6 @@ jobs:
           name: "Update Build Environment"
           command: |
             apt-get -q update -y
-            apt-get install -y python3-pip
-            pip3 install distbuilder
             apt-get install -y libfuse-dev
             apt-get install -y -q cmake ninja-build make g++ rpm p7zip-full
       - run:
