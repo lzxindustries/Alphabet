@@ -23,7 +23,7 @@ jobs:
             cinst --no-progress -y 7zip
             pip install aqtinstall
             python -m aqt install 5.14.2 windows desktop win64_msvc2017_64
-
+            vcpkg integrate install
       - run:
           name: "Update Submodules"
           command: |
@@ -33,9 +33,9 @@ jobs:
           command: |
             mkdir build
             cd build
-            cmake -G "Visual Studio 15 2017 Win64" -DQt5_DIR=Qt5.14.2\5.14.2\msvc2017_64\lib\cmake\Qt5 ..
-            cmake --build . --config Release
-            cmake --build . --target bundle --config Release
+            cmake -G "Visual Studio 15 2017 Win64" -DQt5_DIR=Qt5.14.2\5.14.2\msvc2017_64\lib\cmake\Qt5 .. -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake
+            cmake --build . --config Release -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake
+            cmake --build . --target bundle --config Release -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake
       - store_artifacts:
           path: /root/project/build
 
