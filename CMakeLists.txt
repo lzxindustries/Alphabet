@@ -1,12 +1,28 @@
 cmake_minimum_required (VERSION 3.10)
 
 cmake_policy(SET CMP0042 NEW)
-project(Example
-        VERSION 1.0.0
-        DESCRIPTION "CMake packaging example for Qt application"
+set(CMAKE_MODULE_PATH "/cmake/modules")
+
+project(AppTemplate 
+        DESCRIPTION "LZX Industries Application"
         LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+include_directories(include)
+include(GetGitRevisionDescription)
+git_describe(VERSION --tags --dirty=-dirty)
+string(REGEX REPLACE "^v([0-9]+)\\..*" "\\1" VERSION_MAJOR "${VERSION}")
+string(REGEX REPLACE "^v[0-9]+\\.([0-9]+).*" "\\1" VERSION_MINOR "${VERSION}")
+string(REGEX REPLACE "^v[0-9]+\\.[0-9]+\\.([0-9]+).*" "\\1" VERSION_PATCH "${VERSION}")
+string(REGEX REPLACE "^v[0-9]+\\.[0-9]+\\.[0-9]+(.*)" "\\1" VERSION_SHA1 "${VERSION}")
+set(VERSION_SHORT "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
+
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/version.cpp.in
+                ${CMAKE_CURRENT_BINARY_DIR}/version.cpp)
+set(version_file "${CMAKE_CURRENT_BINARY_DIR}/version.cpp")
+set(source_files "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp")
+
+
 
 ## Default Qt5 path
 if(WIN32)
@@ -25,7 +41,8 @@ elseif(APPLE)
   set(CMAKE_MACOSX_BUNDLE ON)
 endif()
 set(target ${PROJECT_NAME})
-add_executable(${target} src/main.cpp)
+# add_executable(${target} src/main.cpp)
+add_executable(${PROJECT_NAME} ${source_files} ${version_file})
 target_link_libraries(${target} PRIVATE Qt5::Core Qt5::Widgets)
 
 ## Qt5 configurations
@@ -48,13 +65,13 @@ elseif(APPLE)
     set_target_properties(${target}
                           PROPERTIES
                           MACOSX_BUNDLE_BUNDLE_NAME "${PROJECT_NAME}"
-                          MACOSX_BUNDLE_INFO_STRING "${PROJECT_NAME} Copyright (c) 2019 Example@Example.com"
+                          MACOSX_BUNDLE_INFO_STRING "${PROJECT_NAME} Copyright (c) 2020 sales@lzxindustries.net"
                           MACOSX_BUNDLE_ICON_FILE Icon.icns
                           MACOSX_BUNDLE_GUI_IDENTIFIER "${PROJECT_NAME}"
                           MACOSX_BUNDLE_LONG_VERSION_STRING "${PROJECT_VERSION}"
                           MACOSX_BUNDLE_SHORT_VERSION_STRING "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}"
                           MACOSX_BUNDLE_BUNDLE_VERSION "${PROJECT_VERSION}"
-                          MACOSX_BUNDLE_COPYRIGHT "Copyright (c) 2019 Example@Example.com"
+                          MACOSX_BUNDLE_COPYRIGHT "Copyright (c) 2020 sales@lzxindustries.net"
                           )
 endif()
 

@@ -1,12 +1,13 @@
 #include <QApplication>
 #include <QPushButton>
+#include <version.h>
 
 int main(int argc, char **argv)
 {
- QApplication app (argc, argv);
+    QApplication app(argc, argv);
 
- QPushButton button ("Hello world !");
- button.show();
+    QPushButton button("Version: " + gGIT_VERSION);
+    button.show();
 
- return app.exec();
+    return app.exec();
 }
