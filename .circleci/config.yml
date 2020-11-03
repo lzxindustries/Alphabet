@@ -124,10 +124,8 @@ jobs:
             cmake --build . --target bundle --config Release
             dir
             mkdir releases
-            cp ./*.zip ./releases
-            cp ./*.exe ./releases
-            cd _CPack_Packages
-            dir
+
+            cp ./*win64.exe ./releases
 
       - persist_to_workspace:
           root: C:\Users\circleci\project\build\
