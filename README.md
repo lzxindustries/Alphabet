@@ -9,7 +9,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/lzxindustries/lzxtempl-desktop-app">
+  <a href="https://github.com/lzxindustries/alphabet">
     <img src="images/logo.png" alt="Logo" width="150" height="120">
   </a>
 
@@ -18,12 +18,12 @@
   <p align="center">
     Alphabet is a cross-platform desktop application for managing serial communication between the desktop environment and embedded hardware devices.
     <br />
-    <a href="https://lzxindustries.github.io/lzxtempl-desktop-app"><strong>Explore The Documentation »</strong></a>
+    <a href="https://lzxindustries.github.io/alphabet"><strong>Explore The Documentation »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/lzxindustries/lzxtempl-desktop-app/issues">Report Bug</a>
+    <a href="https://github.com/lzxindustries/alphabet/issues">Report Bug</a>
     ·
-    <a href="https://github.com/lzxindustries/lzxtempl-desktop-app/issues">Request Feature</a>
+    <a href="https://github.com/lzxindustries/alphabet/issues">Request Feature</a>
   </p>
 </p>
 
@@ -66,12 +66,12 @@ To get a local copy up and running follow these simple steps.
 
 1. Clone
 ```sh
-git clone https://github.com/lzxindustries/lzxtempl-desktop-app.git
+git clone https://github.com/lzxindustries/alphabet.git
 ```
 
 2. Build
 ```
-cd lzxtempl-desktop-app
+cd alphabet
 mkdir build
 cd build
 cmake --build .
@@ -80,12 +80,12 @@ cmake --build .
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-_For more examples, please refer to the [Documentation](https://lzxindustries.github.io/lzxtempl-desktop-app)_
+_For more examples, please refer to the [Documentation](https://lzxindustries.github.io/alphabet)_
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/lzxindustries/lzxtempl-desktop-app/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/lzxindustries/alphabet/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -106,23 +106,23 @@ Distributed under the GNU GPL v3. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-The LZX Team - [@lzxindustries](https://twitter.com/lzxindustries) - support@lzxindustries.net - [https://www.lzxindustries.net](https://www.lzxindustries.net)
+The LZX Team - support@lzxindustries.net - [https://www.lzxindustries.net](https://www.lzxindustries.net)
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* [The Qt Company](https://www.qt.io)
+* [starlingcode/viaflash](https://github.com/starlingcode/viaflash)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/lzxindustries/lzxtempl-desktop-app.svg?style=flat-square
-[contributors-url]: https://github.com/lzxindustries/lzxtempl-desktop-app/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/lzxindustries/lzxtempl-desktop-app.svg?style=flat-square
-[forks-url]: https://github.com/lzxindustries/lzxtempl-desktop-app/network/members
-[stars-shield]: https://img.shields.io/github/stars/lzxindustries/lzxtempl-desktop-app.svg?style=flat-square
-[stars-url]: https://github.com/lzxindustries/lzxtempl-desktop-app/stargazers
-[issues-shield]: https://img.shields.io/github/issues/lzxindustries/lzxtempl-desktop-app.svg?style=flat-square
-[issues-url]: https://github.com/lzxindustries/lzxtempl-desktop-app/issues
-[license-shield]: https://img.shields.io/github/license/lzxindustries/lzxtempl-desktop-app.svg?style=flat-square
-[license-url]: https://github.com/lzxindustries/lzxtempl-desktop-app/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/lzxindustries/alphabet.svg?style=flat-square
+[contributors-url]: https://github.com/lzxindustries/alphabet/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/lzxindustries/alphabet.svg?style=flat-square
+[forks-url]: https://github.com/lzxindustries/alphabet/network/members
+[stars-shield]: https://img.shields.io/github/stars/lzxindustries/alphabet.svg?style=flat-square
+[stars-url]: https://github.com/lzxindustries/alphabet/stargazers
+[issues-shield]: https://img.shields.io/github/issues/lzxindustries/alphabet.svg?style=flat-square
+[issues-url]: https://github.com/lzxindustries/alphabet/issues
+[license-shield]: https://img.shields.io/github/license/lzxindustries/alphabet.svg?style=flat-square
+[license-url]: https://github.com/lzxindustries/alphabet/blob/master/LICENSE
 [product-screenshot]: images/screenshot.png
