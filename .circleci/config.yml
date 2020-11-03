@@ -85,7 +85,7 @@ jobs:
             cmake --build . --target bundle
             ls
             mkdir releases
-            cp ./*.tar.bz2 ./releases
+            
             cp ./*.dmg ./releases
 
       - persist_to_workspace:
