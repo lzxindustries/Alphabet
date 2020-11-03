@@ -108,7 +108,6 @@ jobs:
             pip install distbuilder
             pip install aqtinstall
             python -m aqt install 5.14.2 windows desktop win64_msvc2017_64
-
             Install-PackageProvider -Name NuGet
 
       - run:
@@ -120,7 +119,7 @@ jobs:
           command: |
             mkdir build
             cd build
-            cmake -G "Visual Studio 16 2019" -A x64 -DQt5_DIR=C:\Qt\5.15.0\msvc2015_64\lib\cmake\Qt5 ..
+            cmake -G "Visual Studio 16 2019" -A x64 -DQt5_DIR=C:\Qt\5.14.2\msvc2017_64\lib\cmake\Qt5 ..
             cmake --build . --config Release
             cmake --build . --target bundle --config Release
             dir
