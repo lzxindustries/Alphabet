@@ -28,9 +28,12 @@ Syntax highlighted code block
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+### Latest Releases
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/lzxindustries/lzxtempl-desktop-app/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+- [App Template v0.1.8 for Mac](https://github.com/lzxindustries/lzxtempl-desktop-app/releases/download/v0.1.8/AppTemplate-0.1.8-Darwin.dmg)
+- [App Template v0.1.8 for Windows](https://github.com/lzxindustries/lzxtempl-desktop-app/releases/download/v0.1.8/AppTemplate-0.1.8-win64.exe)
+- [App Template v0.1.8 for Linux](https://github.com/lzxindustries/lzxtempl-desktop-app/releases/download/v0.1.8/AppTemplate-0.1.8-Linux.run)
+
 
 ### Support or Contact
 
