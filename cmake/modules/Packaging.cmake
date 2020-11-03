@@ -148,13 +148,13 @@ elseif(APPLE)
     list(APPEND CPACK_GENERATOR TBZ2)
     set(CPACK_PACKAGE_ICON ${CMAKE_SOURCE_DIR}/resources/Icon.icns)
     set(CMAKE_INSTALL_RPATH "@executable_path/../Frameworks")
-    macdeployqt("${PROJECT_NAME}.app" "${PROJECT_NAME}-${PROJECT_VERSION}-Darwin" "TBZ")
+    macdeployqt("${PROJECT_NAME}.app" "${PROJECT_NAME}-${PROJECT_VERSION}-Mac" "TBZ")
 
     # XXX: not working settings for bundle and dragndrop generator
-    set(CPACK_BUNDLE_NAME "${PROJECT_NAME}-${PROJECT_VERSION}" )
+    set(CPACK_BUNDLE_NAME "${PROJECT_NAME}-${PROJECT_VERSION}-Mac" )
     set(CPACK_BUNDLE_PLIST "${CMAKE_BINARY_DIR}/Info.plist")
     set(CPACK_BUNDLE_ICON ${CMAKE_PACKAGE_ICON})
-    set(CPACK_DMG_VOLUME_NAME "${PROJECT_NAME}")
+    set(CPACK_DMG_VOLUME_NAME "${PROJECT_NAME}-${PROJECT_VERSION}-Mac")
     set(CPACK_DMG_FORMAT "UDBZ")
     set(CPACK_DMG_BACKGROUND_IMAGE "${CMAKE_SOURCE_DIR}/resources/icon64.png")
 
