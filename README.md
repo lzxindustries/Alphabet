@@ -43,11 +43,9 @@
   <p align="center">
     Template application is the perfect solution.
     <br />
-    <a href="https://lzxindustries.github.io/lzxtempl-desktop-app"><strong>Explore the docs »</strong></a>
+    <a href="https://lzxindustries.github.io/lzxtempl-desktop-app"><strong>Read The Docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/lzxindustries/lzxtempl-desktop-app">View Demo</a>
-    ·
     <a href="https://github.com/lzxindustries/lzxtempl-desktop-app/issues">Report Bug</a>
     ·
     <a href="https://github.com/lzxindustries/lzxtempl-desktop-app/issues">Request Feature</a>
