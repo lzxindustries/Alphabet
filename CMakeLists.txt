@@ -20,9 +20,9 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/version.cpp.in
 
 cmake_policy(SET CMP0042 NEW)
 
-project(AppTemplate 
+project(${CIRCLE_PROJECT_REPONAME} 
         VERSION "${VERSION_SHORT}"
-        DESCRIPTION "LZX Industries Application"
+        DESCRIPTION "Alphabet"
         LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -77,7 +77,7 @@ elseif(APPLE)
 endif()
 
 set(desktop.path applications)
-set(desktop.files resources/example.desktop)
+set(desktop.files resources/alphabet.desktop)
 set(icon.path icons/hicolor/64x64/apps)
 set(icon.files resources/icon64.png)
 set(iconsvg.path icons/hicolor/scalable/apps)

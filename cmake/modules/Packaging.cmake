@@ -68,7 +68,7 @@ endfunction()
 
 set(CPACK_PACKAGE_VENDOR "LZX Industries")
 set(CPACK_PACKAGE_NAME "${PROJECT_NAME}")
-set(CPACK_PACKAGE_CONTACT "LZX Industries <sales@lzxindustries.net>")
+set(CPACK_PACKAGE_CONTACT "LZX Industries <support@lzxindustries.net>")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "${PROJECT_DESCRIPTION}")
 set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_SOURCE_DIR}/README.md")
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE")
@@ -80,7 +80,7 @@ set(CPACK_PACKAGE_INSTALL_DIRECTORY "${PROJECT_NAME}")
 set(CPACK_PACKAGE_DIRECTORY "${CMAKE_BINARY_DIR}")
 
 # set human names to exetuables
-set(CPACK_PACKAGE_EXECUTABLES "${PROJECT_NAME}" "Example Apps")
+set(CPACK_PACKAGE_EXECUTABLES "${PROJECT_NAME}" "Alphabet")
 set(CPACK_CREATE_DESKTOP_LINKS "${PROJECT_NAME}")
 set(CPACK_STRIP_FILES TRUE)
 
@@ -194,7 +194,7 @@ else()
         find_path(NSS3_PLUGIN_PATH NAMES libsoftokn3.so PATHS /usr/lib/${CMAKE_LIBRARY_ARCHITECTURE} /usr/lib /usr/local/lib
                   PATH_SUFFIXES nss NO_DEFAULT_PATH)
         if(CMAKE_VERSION VERSION_LESS 3.13)
-            linuxdeployqt("${CPACK_PACKAGE_DIRECTORY}/_CPack_Packages/Linux/AppImage" "share/applications/example.desktop")
+            linuxdeployqt("${CPACK_PACKAGE_DIRECTORY}/_CPack_Packages/Linux/AppImage" "share/applications/alphabet.desktop")
         else()
             set(CPACK_GENERATOR "External;${CPACK_GENERATOR}")
             configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/CPackLinuxDeployQt.cmake.in "${CMAKE_BINARY_DIR}/CPackExternal.cmake")
