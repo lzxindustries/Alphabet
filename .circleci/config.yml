@@ -135,7 +135,7 @@ jobs:
             dir
             mkdir releases
 
-            cp ./*win64.exe ./releases
+            cp ./*.exe ./releases
 
       - persist_to_workspace:
           root: C:\Users\circleci\project\build\
@@ -170,7 +170,7 @@ jobs:
             cmake --build . --target bundle
             dir
             mkdir releases
-            cp ./*Linux.run ./releases
+            cp ./*.run ./releases
 
       - persist_to_workspace:
           root: /root/project/build
