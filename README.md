@@ -59,7 +59,6 @@
 
 - [Table of Contents](#table-of-contents)
 - [About The Project](#about-the-project)
-  - [Built With](#built-with)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -76,12 +75,6 @@
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-### Built With
-
-* [Qt 5.14.2](https://www.qt.io/)
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -109,22 +102,15 @@ cd build
 cmake --build .
 ```
 
-
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
 _For more examples, please refer to the [Documentation](https://lzxindustries.github.io/lzxtempl-desktop-app)_
-
-
 
 <!-- ROADMAP -->
 ## Roadmap
 
 See the [open issues](https://github.com/lzxindustries/lzxtempl-desktop-app/issues) for a list of proposed features (and known issues).
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -137,14 +123,10 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-
 <!-- LICENSE -->
 ## License
 
 Distributed under the GNU GPL v3. See `LICENSE.txt` for more information.
-
-
 
 <!-- CONTACT -->
 ## Contact
@@ -158,8 +140,6 @@ Project Link: [https://github.com/lzxindustries/lzxtempl-desktop-app](https://gi
 ## Acknowledgements
 
 * [The Qt Company](https://www.qt.io)
-
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
