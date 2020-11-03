@@ -64,6 +64,12 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Capture Tag Value
+          command: |
+            echo 'export CIRCLE_TAG="$(git describe --tags --abbrev=0 $(git rev-parse HEAD))"' >> $BASH_ENV
+              source $BASH_ENV
+            echo "${CIRCLE_TAG}"     
+      - run:
           name: "Install Dependencies"
           command: |
             xcodebuild -version
