@@ -80,12 +80,13 @@ jobs:
             python3 -m pip install aqtinstall
 
             aqt install 5.14.2 mac desktop clang_64
-            aqt tool mac tools_ifw 3.2.2 qt.tools.ifw.32
+
       - run:
           name: "Build"
           command: |
           
             aqt tool mac tools_ifw 3.2.2 qt.tools.ifw.32
+            ls
             cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DQt5_DIR=/Users/distiller/project/5.14.2/clang_64/lib/cmake/Qt5/ .
             cmake --build .
             cmake --build . --target bundle
@@ -121,6 +122,7 @@ jobs:
           name: "Update Submodules"
           command: |
             python -m aqt tool windows tools_ifw 3.2.2 qt.tools.ifw.32
+            dir
             git submodule update --init --recursive --merge .
       - run:
           name: "Build & Package Project"
@@ -157,6 +159,7 @@ jobs:
           name: "Update Submodules"
           command: |
             python3 -m aqt tool windows tools_ifw 3.2.2 qt.tools.ifw.32
+            dir
             git submodule update --init --recursive --merge .
       - run:
           name: "Build & Package Project"
