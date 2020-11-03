@@ -35,7 +35,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/lzxindustries/lzxtempl-desktop-app">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" width="150" height="120">
   </a>
 
   <h3 align="center">LZX Template App</h3>
