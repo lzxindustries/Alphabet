@@ -9,7 +9,7 @@ int main(int argc, char **argv)
 
     //QPushButton button("Version: " + gGIT_VERSION);
     std::string versionString = "Version: ";
-    versionStirng.append(gGIT_VERSION);
+    versionString.append(gGIT_VERSION);
     QPushButton button(versionString);
     button.show();
 
