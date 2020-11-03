@@ -2,45 +2,6 @@ version: 2.1
 orbs:
   win: circleci/windows@2.2.0
 workflows:
-  publish:
-    jobs:
-      - build-linux:
-          context:
-            - org-global
-          filters:
-            tags:
-              only: /^\d+\.\d+\.\d+$/
-            branches:
-              ignore: /.*/
-      - build-windows:
-          context:
-            - org-global
-          filters:
-            tags:
-              only: /^\d+\.\d+\.\d+$/
-            branches:
-              ignore: /.*/
-      - build-mac:
-          context:
-            - org-global
-          filters:
-            tags:
-              only: /^\d+\.\d+\.\d+$/
-            branches:
-              ignore: /.*/
-      - publish-github-release:
-          filters:
-            tags:
-              only: /^\d+\.\d+\.\d+$/
-            branches:
-              ignore: /.*/
-          context:
-            - org-global
-          requires:
-            - build-linux
-            - build-windows
-            - build-mac
-            
   build:
     jobs:
       - build-linux:
@@ -52,6 +13,14 @@ workflows:
       - build-mac:
           context:
             - org-global
+      - publish-github-release:
+          context:
+            - org-global
+          requires:
+            - build-linux
+            - build-windows
+            - build-mac
+
 jobs:
   publish-github-release:
     docker:
@@ -74,7 +43,7 @@ jobs:
                 -u "${CIRCLE_PROJECT_USERNAME}" \
                 -r "${CIRCLE_PROJECT_REPONAME}" \
                 -c "${CIRCLE_SHA1}" \
-                -delete \
+                -soft \
                 "${CIRCLE_TAG}" releases/releases/
 
   build-mac:
