@@ -79,6 +79,8 @@ jobs:
       - run:
           name: "Build"
           command: |
+          
+            aqt tool mac tools_ifw 3.2.2 qt.tools.ifw.32
             cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DQt5_DIR=/usr/local/opt/5.14.2/clang_64/lib/cmake/Qt5/ .
             cmake --build .
             cmake --build . --target bundle
@@ -107,11 +109,13 @@ jobs:
             pip install distbuilder
             pip install aqtinstall
             python -m aqt install 5.14.2 windows desktop win64_msvc2017_64
+            
             Install-PackageProvider -Name NuGet
 
       - run:
           name: "Update Submodules"
           command: |
+            python -m aqt tool windows tools_ifw 3.2.2 qt.tools.ifw.32
             git submodule update --init --recursive --merge .
       - run:
           name: "Build & Package Project"
