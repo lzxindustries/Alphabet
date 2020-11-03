@@ -176,16 +176,16 @@ Project Link: [https://github.com/lzxindustries/lzxtempl-desktop-app](https://gi
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/lzxindustries/repo.svg?style=flat-square
-[contributors-url]: https://github.com/lzxindustries/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/lzxindustries/repo.svg?style=flat-square
-[forks-url]: https://github.com/lzxindustries/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/lzxindustries/repo.svg?style=flat-square
-[stars-url]: https://github.com/lzxindustries/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/lzxindustries/repo.svg?style=flat-square
-[issues-url]: https://github.com/lzxindustries/repo/issues
-[license-shield]: https://img.shields.io/github/license/lzxindustries/repo.svg?style=flat-square
-[license-url]: https://github.com/lzxindustries/repo/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/lzxindustries/lzxtempl-desktop-app.svg?style=flat-square
+[contributors-url]: https://github.com/lzxindustries/lzxtempl-desktop-app/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/lzxindustries/lzxtempl-desktop-app.svg?style=flat-square
+[forks-url]: https://github.com/lzxindustries/lzxtempl-desktop-app/network/members
+[stars-shield]: https://img.shields.io/github/stars/lzxindustries/lzxtempl-desktop-app.svg?style=flat-square
+[stars-url]: https://github.com/lzxindustries/lzxtempl-desktop-app/stargazers
+[issues-shield]: https://img.shields.io/github/issues/lzxindustries/lzxtempl-desktop-app.svg?style=flat-square
+[issues-url]: https://github.com/lzxindustries/lzxtempl-desktop-app/issues
+[license-shield]: https://img.shields.io/github/license/lzxindustries/lzxtempl-desktop-app.svg?style=flat-square
+[license-url]: https://github.com/lzxindustries/lzxtempl-desktop-app/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/lzxindustries
 [product-screenshot]: images/screenshot.png
