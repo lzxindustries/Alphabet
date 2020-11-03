@@ -16,9 +16,9 @@
   <h3 align="center">LZX Alphabet</h3>
 
   <p align="center">
-    Alphabet is a cross-platform desktop application for managing firmware updates and serial communication between the desktop environment and embedded hardware devices.
+    Alphabet is a cross-platform desktop application for managing serial communication between the desktop environment and embedded hardware devices.
     <br />
-    <a href="https://lzxindustries.github.io/lzxtempl-desktop-app"><strong>Read The Docs »</strong></a>
+    <a href="https://lzxindustries.github.io/lzxtempl-desktop-app"><strong>Explore The Documentation »</strong></a>
     <br />
     <br />
     <a href="https://github.com/lzxindustries/lzxtempl-desktop-app/issues">Report Bug</a>
@@ -45,7 +45,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+Alphabet was written to serve as a cross-platform application for firmware upgrade and testing of LZX Industries hardware devices. We'd like to share our work with others who have a need for such a cross-platform application.
+
+Alphabet is built on a multi-component installer, so it is intended to serve as a single application to manage multiple expansion components, and serve user upgrades without requiring the download and installation of a new package.
+
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 <!-- GETTING STARTED -->
 ## Getting Started
