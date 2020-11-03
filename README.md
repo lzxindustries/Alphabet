@@ -10,7 +10,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/lzxindustries/alphabet">
-    <img src="images/logo.png" alt="Logo" width="150" height="120">
+    <img src="resources/logo128.png" alt="LZX Industries Logo" width="128" height="128">
   </a>
 
   <h3 align="center">Alphabet</h3>

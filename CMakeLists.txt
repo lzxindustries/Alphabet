@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.10)
+cmake_minimum_required (VERSION 3.16)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules/")
 include_directories(include)
@@ -15,12 +15,10 @@ string(REGEX REPLACE "^v[0-9]+\\.[0-9]+\\.[0-9]+(.*)" "\\1" VERSION_SHA1 "${VERS
 set(VERSION_SHORT "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 message(WARNING "${VERSION_SHORT}")
 
-
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/version.cpp.in 
                 ${CMAKE_CURRENT_BINARY_DIR}/version.cpp)
 
 cmake_policy(SET CMP0042 NEW)
-
 
 project(AppTemplate 
         VERSION "${VERSION_SHORT}"
@@ -46,11 +44,9 @@ elseif(APPLE)
   set(CMAKE_MACOSX_BUNDLE ON)
 endif()
 set(target ${PROJECT_NAME})
-# add_executable(${target} src/main.cpp)
 add_executable(${target} "${CMAKE_CURRENT_BINARY_DIR}/version.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp")
 target_link_libraries(${target} PRIVATE Qt5::Core Qt5::Widgets)
 
-## Qt5 configurations
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
@@ -115,13 +111,6 @@ if(CMake_RUN_CLANG_TIDY)
     set(CLANG_TIDY_CHECKS "-*,modernize-*")
     set(CMAKE_CXX_CLANG_TIDY "${CLANG_TIDY_COMMAND};-checks=${CLANG_TIDY_CHECKS};-header-filter='${CMAKE_SOURCE_DIR}/src/*'")
   endif()
-
-  # Create a preprocessor definition that depends on .clang-tidy content so
-  # the compile command will change when .clang-tidy changes.  This ensures
-  # that a subsequent build re-runs clang-tidy on all sources even if they
-  # do not otherwise need to be recompiled.  Nothing actually uses this
-  # definition.  We add it to targets on which we run clang-tidy just to
-  # get the build dependency on the .clang-tidy file.
   file(SHA1 ${CMAKE_CURRENT_SOURCE_DIR}/.clang-tidy clang_tidy_sha1)
   set(CLANG_TIDY_DEFINITIONS "CLANG_TIDY_SHA1=${clang_tidy_sha1}")
   unset(clang_tidy_sha1)
@@ -140,7 +129,6 @@ if(CMake_RUN_IWYU)
   endif()
 endif()
 
-# Clazy is a Qt oriented code checker based on clang framework. Krazy's little brother.
 set(CMake_RUN_CLAZY OFF CACHE BOOL "Add clazy check for builds")
 if(ENABLE_CLAZY)
   find_program(CLAZY_EXECUTABLE NAMES clazy PATHS /usr/local/llvm/bin /usr/local/bin /opt/clazy/bin)
@@ -151,4 +139,3 @@ if(ENABLE_CLAZY)
   endif()
 endif()
 
-# vim: ts=2 sw=2 sts=2 et
