@@ -40,6 +40,7 @@ workflows:
             - build-linux
             - build-windows
             - build-mac
+            
   build:
     jobs:
       - build-linux:
