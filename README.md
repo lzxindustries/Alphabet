@@ -77,16 +77,9 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`lzxindustries`, `lzxtempl-desktop-app`, `lzxindustries`, `support@lzxindustries.net`
-
-
 ### Built With
 
 * [Qt 5.14.2](https://www.qt.io/)
-* []()
-* []()
 
 
 
@@ -97,23 +90,24 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-```sh
-npm install npm@latest -g
-```
+* Qt 5.14.2
+* Qt Installer Framework 3.2.2
+* CMake 3.16
 
 ### Installation
 
-1. Clone the repo
+1. Clone
 ```sh
 git clone https://github.com/lzxindustries/lzxtempl-desktop-app.git
 ```
-2. Install Qt 5.14.2
-```sh
-install
-```
 
+2. Build
+```
+cd lzxtempl-desktop-app
+mkdir build
+cd build
+cmake --build .
+```
 
 
 <!-- USAGE EXAMPLES -->
@@ -148,26 +142,22 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the GNU GPL v3. See `LICENSE.txt` for more information.
 
 
 
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@lzxindustries](https://twitter.com/lzxindustries) - support@lzxindustries.net
+The LZX Team - [@lzxindustries](https://twitter.com/lzxindustries) - support@lzxindustries.net
 
 Project Link: [https://github.com/lzxindustries/lzxtempl-desktop-app](https://github.com/lzxindustries/lzxtempl-desktop-app)
-
 
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* []()
-* []()
-* []()
-
+* [The Qt Company](https://www.qt.io)
 
 
 
