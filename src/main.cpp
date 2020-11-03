@@ -7,7 +7,7 @@ int main(int argc, char **argv)
     QApplication app(argc, argv);
 
     //QPushButton button("Version: " + gGIT_VERSION);
-    QPushButton button("Test Button");
+    QPushButton button(gGIT_VERSION.c_str());
     button.show();
 
     return app.exec();
