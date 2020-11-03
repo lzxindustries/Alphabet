@@ -2,6 +2,8 @@ cmake_minimum_required (VERSION 3.10)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules/")
 include_directories(include)
+include_directories(cmake/include)
+
 include(GetGitRevisionDescription)
 
 git_describe(VERSION --tags --dirty=-dirty --abbrev=0 )
