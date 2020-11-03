@@ -8,8 +8,9 @@ find_program(MACDEPLOYQT_EXECUTABLE macdeployqt HINTS "${_qt_bin_dir}")
 find_program(MACDEPLOYQTFIX_EXECUTABLE macdeployqtfix.py HINTS "${_qt_bin_dir}")
 find_package(Python)
 
-set(CPACK_IFW_ROOT $ENV{HOME}/Qt/QtIFW-3.2.2/ CACHE PATH "Qt Installer Framework installation base path")
-message(WARNING "$ENV{HOME}/Qt/QtIFW-3.2.2/")
+set(CPACK_IFW_ROOT ${_qt_bin_dir} CACHE PATH "Qt Installer Framework installation base path")
+message(WARNING "$ENV{HOME}/QtIFW-3.2.2/")
+message(WARNING "${_qt_bin_dir}")
 find_program(BINARYCREATOR_EXECUTABLE binarycreator HINTS "${_qt_bin_dir}" ${CPACK_IFW_ROOT}/bin)
 
 mark_as_advanced(WINDEPLOYQT_EXECUTABLE LINUXDEPLOYQT_EXECUTABLE MACDEPLOYQT_EXECUTABLE)
