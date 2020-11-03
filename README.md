@@ -131,10 +131,7 @@ Distributed under the GNU GPL v3. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-The LZX Team - [@lzxindustries](https://twitter.com/lzxindustries) - support@lzxindustries.net
-
-Project Link: [https://github.com/lzxindustries/lzxtempl-desktop-app](https://github.com/lzxindustries/lzxtempl-desktop-app)
-
+The LZX Team - [@lzxindustries](https://twitter.com/lzxindustries) - support@lzxindustries.net - [https://www.lzxindustries.net](https://www.lzxindustries.net)
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
