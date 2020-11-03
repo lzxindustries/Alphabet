@@ -158,7 +158,7 @@ jobs:
       - run:
           name: "Update Submodules"
           command: |
-            python3 -m aqt tool windows tools_ifw 3.2.2 qt.tools.ifw.32
+            python3 -m aqt tool linux tools_ifw 3.2.2 qt.tools.ifw.32
             dir
             git submodule update --init --recursive --merge .
       - run:
