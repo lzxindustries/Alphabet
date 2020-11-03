@@ -101,7 +101,7 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 ## License
 
-Distributed under the GNU GPL v3. See `LICENSE.txt` for more information.
+Distributed under the GNU GPL v3. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
