@@ -124,5 +124,5 @@ The LZX Team - [@lzxindustries](https://twitter.com/lzxindustries) - support@lzx
 [issues-shield]: https://img.shields.io/github/issues/lzxindustries/lzxtempl-desktop-app.svg?style=flat-square
 [issues-url]: https://github.com/lzxindustries/lzxtempl-desktop-app/issues
 [license-shield]: https://img.shields.io/github/license/lzxindustries/lzxtempl-desktop-app.svg?style=flat-square
-[license-url]: https://github.com/lzxindustries/lzxtempl-desktop-app/blob/master/LICENSE.txt
+[license-url]: https://github.com/lzxindustries/lzxtempl-desktop-app/blob/master/LICENSE
 [product-screenshot]: images/screenshot.png
