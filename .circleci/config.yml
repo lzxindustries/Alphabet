@@ -46,7 +46,7 @@ workflows:
       - build-windows:
           context:
             - org-global
-      - build-macos:
+      - build-mac:
           context:
             - org-global
 jobs:
