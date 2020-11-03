@@ -92,8 +92,8 @@ jobs:
             cmake --build . --target bundle
             ls
             mkdir releases
-            for f in *.dmg; do mv "$f" "${f%.dmg}-${CIRCLE_TAG}-Mac.dmg"; done
-            cp ./*.dmg ./releases
+            
+            cp ./*Darwin.dmg ./releases
 
       - persist_to_workspace:
           root: /Users/distiller/project/
