@@ -147,16 +147,7 @@ jobs:
           name: "Update Build Environment"
           command: |
             apt-get -q update -y
-            apt-get install -y libfuse-dev
-            apt-get install -y -q cmake ninja-build make g++ rpm p7zip-full
-            apt-get install -y qtchooser
 
-      - run:
-          name: "Install Dependencies"
-          command: |
-            apt-get install -y -q qtbase5-dev qt5-style-plugins
-            wget -q -O linuxdeployqt https://github.com/probonopd/linuxdeployqt/releases/download/7/linuxdeployqt-7-x86_64.AppImage
-            install linuxdeployqt /usr/local/bin/
       - run:
           name: "Update Submodules"
           command: |
@@ -170,10 +161,8 @@ jobs:
             cmake --build . --target bundle
             dir
             mkdir releases
-            cp ./*Linux.deb ./releases
-            cp ./*Linux.rpm ./releases
-            cp ./*Linux.tar.xz ./releases
-            cp ./*Linux.tar.bz2 ./releases
+            cp ./*Linux.run ./releases
+
       - persist_to_workspace:
           root: /root/project/build
           paths:
