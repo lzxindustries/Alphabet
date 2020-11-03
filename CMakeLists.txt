@@ -20,7 +20,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/version.cpp.in
 
 cmake_policy(SET CMP0042 NEW)
 
-project(${CIRCLE_PROJECT_REPONAME} 
+project(Alphabet 
         VERSION "${VERSION_SHORT}"
         DESCRIPTION "Alphabet"
         LANGUAGES C CXX)
@@ -35,7 +35,7 @@ elseif(APPLE)
 else()
   set(Qt5_DIR "" CACHE PATH "directory where Qt5Config.cmake exists.")
 endif()
-find_package(Qt5 COMPONENTS Core Widgets REQUIRED)
+find_package(Qt5 COMPONENTS Core Widgets SerialPort REQUIRED)
 
 ##---------------------------------------------------------------------------------
 if(WIN32)
@@ -45,7 +45,7 @@ elseif(APPLE)
 endif()
 set(target ${PROJECT_NAME})
 add_executable(${target} "${CMAKE_CURRENT_BINARY_DIR}/version.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp")
-target_link_libraries(${target} PRIVATE Qt5::Core Qt5::Widgets)
+target_link_libraries(${target} PRIVATE Qt5::Core Qt5::Widgets Qt5::SerialPort)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
