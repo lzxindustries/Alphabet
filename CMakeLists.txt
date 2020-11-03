@@ -22,7 +22,6 @@ set(source_files "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp")
 cmake_policy(SET CMP0042 NEW)
 
 
-
 project(AppTemplate 
         VERSION "${VERSION_SHORT}"
         DESCRIPTION "LZX Industries Application"
