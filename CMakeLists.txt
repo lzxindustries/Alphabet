@@ -16,10 +16,8 @@ set(VERSION_SHORT "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 message(WARNING "${VERSION_SHORT}")
 
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/version.cpp.in
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/version.cpp.in 
                 ${CMAKE_CURRENT_BINARY_DIR}/version.cpp)
-set(version_file "${CMAKE_CURRENT_BINARY_DIR}/version.cpp")
-set(source_files "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp")
 
 cmake_policy(SET CMP0042 NEW)
 
@@ -49,7 +47,7 @@ elseif(APPLE)
 endif()
 set(target ${PROJECT_NAME})
 # add_executable(${target} src/main.cpp)
-add_executable(${PROJECT_NAME} ${source_files} ${version_file})
+add_executable(${target} "${CMAKE_CURRENT_BINARY_DIR}/version.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp")
 target_link_libraries(${target} PRIVATE Qt5::Core Qt5::Widgets)
 
 ## Qt5 configurations
