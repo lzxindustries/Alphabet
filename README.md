@@ -13,7 +13,7 @@
     <img src="images/logo.png" alt="Logo" width="150" height="120">
   </a>
 
-  <h3 align="center">LZX Alphabet</h3>
+  <h3 align="center">Alphabet</h3>
 
   <p align="center">
     Alphabet is a cross-platform desktop application for managing serial communication between the desktop environment and embedded hardware devices.
