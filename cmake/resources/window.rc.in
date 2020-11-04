@@ -15,14 +15,14 @@ BEGIN
     BEGIN
         BLOCK "000004b0"
         BEGIN
-            VALUE "CompanyName", "LZX Industries"
-            VALUE "FileDescription", "Alphabet"
-            VALUE "FileVersion", "0.1.0.0"
-            VALUE "LegalCopyright", "Copyright (C) 2020 LZX Industries."
+            VALUE "CompanyName", "@COMPANY_NAME@"
+            VALUE "FileDescription", "@PROJECT_NAME@"
+            VALUE "FileVersion", "@PROJECT_VERSION@"
+            VALUE "LegalCopyright", "Copyright (C) 2020 @COMPANY_NAME@."
             VALUE "InternalName", "window"
             VALUE "OriginalFilename", "window.exe"
-            VALUE "ProductName", "Alphabet"
-            VALUE "ProductVersion", "0.1.0.0"
+            VALUE "ProductName", "@PROJECT_NAME@"
+            VALUE "ProductVersion", "@PROJECT_VERSION@"
         END
     END
     BLOCK "VarFileInfo"

@@ -50,6 +50,7 @@
 ****************************************************************************/
 
 #include "mainwindow.h"
+#include "version.h"
 
 #include <QApplication>
 

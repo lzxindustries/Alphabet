@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=@PROJECT_VERSION@
+Name=@PROJECT_NAME@
+GenericName=@PROJECT_NAME@
+Comment=@PROJECT_NAME@
+Icon=icon
+Terminal=false
+Exec=@PROJECT_NAME@ %F
+MimeType=text/text;
+Categories=Utility;
