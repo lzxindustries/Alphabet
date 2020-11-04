@@ -1,19 +1,30 @@
 cmake_minimum_required(VERSION 3.0.0)
 
+# Canonical definition
 project(Alphabet VERSION 0.1.0)
 
+set(CMAKE_MODULE_PATH "/cmake/modules")
+
 # Qt Required
-set(CMAKE_PREFIX_PATH "C:/Qt/5.14.2/msvc2017_64") 
-set(CPACK_IFW_ROOT "C:/Qt/Tools/QtInstallerFramework/4.0")
-set(CMAKE_MODULE_PATH "cmake/modules")
-set(Qt5_DIR "C:/Qt/5.14.2/msvc2017_64/lib/cmake/Qt5")
+if(WIN32)
+    set(CMAKE_PREFIX_PATH "C:/Qt/5.14.2/msvc2017_64") 
+    set(CPACK_IFW_ROOT "C:/Qt/Tools/QtInstallerFramework/4.0")
+    set(QTIFWDIR "C:/Qt/Tools/QtInstallerFramework/4.0")
+    set(Qt5_DIR "C:/Qt/5.14.2/msvc2017_64/lib/cmake/Qt5")
+    set(QTDIR "C:/Qt/5.14.2/msvc2017_64")
+else()
+    set(CMAKE_PREFIX_PATH "/opt/Qt/5.14.2/msvc2017_64") 
+    set(CPACK_IFW_ROOT "/opt/Qt/Tools/QtInstallerFramework/4.0")
+    set(Qt5_DIR "/opt/Qt/5.14.2/msvc2017_64/lib/cmake/Qt5")
+    set(QTDIR "/opt/Qt/5.14.2/msvc2017_64")
+endif()
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-add_executable(Alphabet WIN32 MACOSX_BUNDLE 
+add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE 
     src/console.cpp
     src/main.cpp
     src/mainwindow.cpp
@@ -24,20 +35,22 @@ add_executable(Alphabet WIN32 MACOSX_BUNDLE
 )
 
 install(
-    TARGETS Alphabet
-    RUNTIME DESTINATION Alphabet
-    COMPONENT AlphabetInstaller
-    BUNDLE DESTINATION Alphabet
-    COMPONENT AlphabetInstaller
+    TARGETS ${PROJECT_NAME}
+    RUNTIME DESTINATION ${PROJECT_NAME}
+    COMPONENT ${PROJECT_NAME}Installer
+    BUNDLE DESTINATION ${PROJECT_NAME}
+    COMPONENT ${PROJECT_NAME}Installer
 )
 
+
+
 function(CPACKIFW_COMMON)
-    set(CPACK_PACKAGE_NAME Alphabet)
+    set(CPACK_PACKAGE_NAME ${PROJECT_NAME})
     set(CPACK_PACKAGE_FILE_NAME Installer)
-    set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Alphabet Installer")
+    set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "${PROJECT_NAME} Installer")
     set(CPACK_PACKAGE_VERSION "1.0.0") # Version of installer
-    set(CPACK_COMPONENTS_ALL AlphabetInstaller)
-    set(CPACK_IFW_PACKAGE_START_MENU_DIRECTORY Alphabet)
+    set(CPACK_COMPONENTS_ALL ${PROJECT_NAME}Installer)
+    set(CPACK_IFW_PACKAGE_START_MENU_DIRECTORY ${PROJECT_NAME})
     set(CPACK_GENERATOR IFW)
     set(CPACK_IFW_VERBOSE ON)
 
@@ -45,23 +58,23 @@ function(CPACKIFW_COMMON)
     include(CPackIFW REQUIRED)
 
     cpack_add_component(
-        AlphabetInstaller
-        DISPLAY_NAME "Alphabet"
-        DESCRIPTION "Install Alphabet"
+        ${PROJECT_NAME}Installer
+        DISPLAY_NAME "${PROJECT_NAME}"
+        DESCRIPTION "Install ${PROJECT_NAME}"
         REQUIRED
     )
 
     cpack_ifw_configure_component(
-        AlphabetInstaller
+        ${PROJECT_NAME}Installer
         FORCED_INSTALLATION
         NAME qt.cpackifw.installer
         VERSION ${PROJECT_VERSION} # Version of component
-        LICENSES License ${Alphabet_SOURCE_DIR}/LICENSE
+        LICENSES License ${${PROJECT_NAME}_SOURCE_DIR}/LICENSE
         DEFAULT TRUE
     )
 endfunction()
 
-if(CPACK_IFW_ROOT OR DEFINED ENV{QTIFWDIR})
+if(CPACK_IFW_ROOT OR DEFINED $ENV{QTIFWDIR})
     if(DEFINED {CMAKE_PREFIX_PATH})
         if(APPLE)
             if(EXISTS ${CMAKE_PREFIX_PATH}/bin/macdeployqt)
@@ -85,7 +98,7 @@ if(CPACK_IFW_ROOT OR DEFINED ENV{QTIFWDIR})
                 message("*")
 
                 add_custom_command(
-                    TARGET Alphabet POST_BUILD
+                    TARGET ${PROJECT_NAME} POST_BUILD
                     COMMAND ${CMAKE_PREFIX_PATH}/bin/macdeployqt ${PROJECT_NAME}.app
                 )
 
@@ -96,7 +109,7 @@ if(CPACK_IFW_ROOT OR DEFINED ENV{QTIFWDIR})
         elseif(WIN32)
             if(EXISTS ${CMAKE_PREFIX_PATH}/bin/windeployqt.exe)
                 add_custom_command(
-                    TARGET Alphabet POST_BUILD
+                    TARGET ${PROJECT_NAME} POST_BUILD
                     COMMAND ${CMAKE_COMMAND} -E remove_directory ${CMAKE_BINARY_DIR}/windeployqt_stuff
                     COMMAND ${CMAKE_PREFIX_PATH}/bin/windeployqt.exe --compiler-runtime --dir ${CMAKE_BINARY_DIR}/windeployqt_stuff $<TARGET_FILE:if(CPACK_IFW_ROOT OR DEFINED ENV{QTIFWDIR})
     if(DEFINED {CMAKE_PREFIX_PATH})
@@ -122,7 +135,7 @@ if(CPACK_IFW_ROOT OR DEFINED ENV{QTIFWDIR})
                 message("*")
 
                 add_custom_command(
-                    TARGET Alphabet POST_BUILD
+                    TARGET ${PROJECT_NAME} POST_BUILD
                     COMMAND ${CMAKE_PREFIX_PATH}/bin/macdeployqt ${PROJECT_NAME}.app
                 )
 
@@ -133,15 +146,15 @@ if(CPACK_IFW_ROOT OR DEFINED ENV{QTIFWDIR})
         elseif(WIN32)
             if(EXISTS ${CMAKE_PREFIX_PATH}/bin/windeployqt.exe)
                 add_custom_command(
-                    TARGET Alphabet POST_BUILD
+                    TARGET ${PROJECT_NAME} POST_BUILD
                     COMMAND ${CMAKE_COMMAND} -E remove_directory ${CMAKE_BINARY_DIR}/windeployqt_stuff
-                    COMMAND ${CMAKE_PREFIX_PATH}/bin/windeployqt.exe --compiler-runtime --dir ${CMAKE_BINARY_DIR}/windeployqt_stuff $<TARGET_FILE:Alphabet>
+                    COMMAND ${CMAKE_PREFIX_PATH}/bin/windeployqt.exe --compiler-runtime --dir ${CMAKE_BINARY_DIR}/windeployqt_stuff $<TARGET_FILE:${PROJECT_NAME}>
                 )
 
                 install(
                     DIRECTORY ${CMAKE_BINARY_DIR}/windeployqt_stuff/
                     DESTINATION ${PROJECT_NAME}
-                    COMPONENT AlphabetInstaller
+                    COMPONENT ${PROJECT_NAME}Installer
                 )
 
                 CPACKIFW_COMMON()
@@ -166,7 +179,7 @@ endif()
                 install(
                     DIRECTORY ${CMAKE_BINARY_DIR}/windeployqt_stuff/
                     DESTINATION ${PROJECT_NAME}
-                    COMPONENT AlphabetInstaller
+                    COMPONENT ${PROJECT_NAME}Installer
                 )
 
                 CPACKIFW_COMMON()
@@ -188,7 +201,7 @@ else()
 endif()
 
 find_package(Qt5 COMPONENTS Widgets SerialPort Core Gui REQUIRED)
-target_link_libraries(Alphabet Qt5::Widgets Qt5::Core Qt5::Gui Qt5::SerialPort)
+target_link_libraries(${PROJECT_NAME} Qt5::Widgets Qt5::Core Qt5::Gui Qt5::SerialPort)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
