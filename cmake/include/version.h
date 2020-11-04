@@ -1,6 +1,18 @@
 #pragma once
 
+#include <stdint.h>
 #include <string>
 
-extern const std::string gGIT_VERSION;
-extern const std::string gGIT_VERSION_SHORT;
+namespace lzx { 
+    struct VersionInfo {
+        uint32_t major;
+        uint32_t minor;
+        uint32_t patch;
+        uint32_t tweak;
+        std::string name;
+        std::string gitVersion;
+        std::string gitVersionShort;
+    };
+
+    extern const VersionInfo kVersionInfo;
+};

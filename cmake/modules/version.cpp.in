@@ -1,5 +1,14 @@
+#include <stdint.h>
 #include <string>
 #include <version.h>
 
-const std::string gGIT_VERSION = "@VERSION@";
-const std::string gGIT_VERSION_SHORT = "@VERSION_SHORT@";
+const lzx::VersionInfo lzx::kVersionInfo = {
+        @VERSION_MAJOR@,
+        @VERSION_MINOR@,
+        @VERSION_PATCH@,
+        @VERSION_TWEAK@,
+        "@PROJECT_NAME@",
+        "@VERSION@",
+        "@VERSION_SHORT@"
+    };
+};
