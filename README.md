@@ -11,7 +11,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/lzxindustries/lzxconsole">
-    <img src="src/resources/package/images/icon128.png" alt="LZX Industries Logo" width="128" height="128">
+    <img src="src/resources/package/icon128.png" alt="LZX Industries Logo" width="128" height="128">
   </a>
 
   <h3 align="center">LZX Console</h3>
