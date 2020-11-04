@@ -4,7 +4,9 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(COMPANY_NAME "LZX Industries")
 
-project(Alphabet VERSION 0.1.0)
+include(cmake/modules/MakeVersion.cmake)
+
+project(${PROJECT_FOLDER_NAME} VERSION ${VERSION_SHORT})
 
 set(PROJECT_SOURCE_FILES     
     src/console.cpp

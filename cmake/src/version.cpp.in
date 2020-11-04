@@ -1,0 +1,4 @@
+#include <version.h>
+
+const QString gVERSION = "@VERSION@";
+const QString gVERSION_SHORT = "@VERSION_SHORT@";

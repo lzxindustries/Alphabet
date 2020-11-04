@@ -10,21 +10,21 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/lzxindustries/alphabet">
+  <a href="https://github.com/lzxindustries/lzxconsole">
     <img src="resources/icon128.png" alt="LZX Industries Logo" width="128" height="128">
   </a>
 
-  <h3 align="center">Alphabet</h3>
+  <h3 align="center">LZX Console</h3>
 
   <p align="center">
-    Alphabet is a cross-platform desktop application for managing serial communication between the desktop environment and embedded hardware devices.
+    LZX Console is a cross-platform desktop application for managing serial communication between the desktop environment and embedded hardware devices.
     <br />
-    <a href="https://lzxindustries.github.io/alphabet"><strong>Explore The Documentation »</strong></a>
+    <a href="https://lzxindustries.github.io/lzxconsole"><strong>Explore The Documentation »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/lzxindustries/alphabet/issues">Report Bug</a>
+    <a href="https://github.com/lzxindustries/lzxconsole/issues">Report Bug</a>
     ·
-    <a href="https://github.com/lzxindustries/alphabet/issues">Request Feature</a>
+    <a href="https://github.com/lzxindustries/lzxconsole/issues">Request Feature</a>
   </p>
 </p>
 
@@ -46,9 +46,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Alphabet was written to serve as a cross-platform application for firmware upgrade and testing of LZX Industries hardware devices. We'd like to share our work with others who have a need for such a cross-platform application.
+LZX Console was written to serve as a cross-platform application for firmware upgrade and testing of LZX Industries hardware devices. We'd like to share our work with others who have a need for such a cross-platform application.
 
-Alphabet is built on a multi-component installer, so it is intended to serve as a single application to manage multiple expansion components, and serve user upgrades without requiring the download and installation of a new package.
+LZX Console is built on a multi-component installer, so it is intended to serve as a single application to manage multiple expansion components, and serve user upgrades without requiring the download and installation of a new package.
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
@@ -67,12 +67,12 @@ To get a local copy up and running follow these simple steps.
 
 1. Clone
 ```sh
-git clone https://github.com/lzxindustries/alphabet.git
+git clone https://github.com/lzxindustries/lzxconsole.git
 ```
 
 2. Build
 ```
-cd alphabet
+cd lzxconsole
 mkdir build
 cd build
 cmake --build .
@@ -81,12 +81,12 @@ cmake --build .
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-_For more examples, please refer to the [Documentation](https://lzxindustries.github.io/alphabet)_
+_For more examples, please refer to the [Documentation](https://lzxindustries.github.io/lzxconsole)_
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/lzxindustries/alphabet/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/lzxindustries/lzxconsole/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -116,14 +116,14 @@ The LZX Team - support@lzxindustries.net - [https://www.lzxindustries.net](https
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/lzxindustries/alphabet.svg?style=flat-square
-[contributors-url]: https://github.com/lzxindustries/alphabet/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/lzxindustries/alphabet.svg?style=flat-square
-[forks-url]: https://github.com/lzxindustries/alphabet/network/members
-[stars-shield]: https://img.shields.io/github/stars/lzxindustries/alphabet.svg?style=flat-square
-[stars-url]: https://github.com/lzxindustries/alphabet/stargazers
-[issues-shield]: https://img.shields.io/github/issues/lzxindustries/alphabet.svg?style=flat-square
-[issues-url]: https://github.com/lzxindustries/alphabet/issues
-[license-shield]: https://img.shields.io/github/license/lzxindustries/alphabet.svg?style=flat-square
-[license-url]: https://github.com/lzxindustries/alphabet/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/lzxindustries/lzxconsole.svg?style=flat-square
+[contributors-url]: https://github.com/lzxindustries/lzxconsole/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/lzxindustries/lzxconsole.svg?style=flat-square
+[forks-url]: https://github.com/lzxindustries/lzxconsole/network/members
+[stars-shield]: https://img.shields.io/github/stars/lzxindustries/lzxconsole.svg?style=flat-square
+[stars-url]: https://github.com/lzxindustries/lzxconsole/stargazers
+[issues-shield]: https://img.shields.io/github/issues/lzxindustries/lzxconsole.svg?style=flat-square
+[issues-url]: https://github.com/lzxindustries/lzxconsole/issues
+[license-shield]: https://img.shields.io/github/license/lzxindustries/lzxconsole.svg?style=flat-square
+[license-url]: https://github.com/lzxindustries/lzxconsole/blob/master/LICENSE
 [product-screenshot]: images/screenshot.png

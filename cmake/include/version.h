@@ -1,3 +1,10 @@
-#define VERSION "0.1-11-"
+#ifndef VERSION_H
+#define VERSION_H
 
-//some other junk
+#include <QString>
+
+//Global version strings
+extern const QString gVERSION;
+extern const QString gVERSION_SHORT;
+
+#endif //VERSION_H

@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
+
+
 configure_file(cmake/resources/application.desktop.in ${${PROJECT_NAME}_BINARY_DIR}/application.desktop)
 configure_file(cmake/resources/window.rc.in ${${PROJECT_NAME}_BINARY_DIR}/window.rc)
 
@@ -23,11 +25,11 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE 
-    ${PROJECT_SOURCE_FILES}
+    ${PROJECT_SOURCE_FILES} ${version_file}
 )
 
-set(VERSION_FILE ${CMAKE_SOURCE_DIR}/cmake/include/version.h)
-include(${CMAKE_SOURCE_DIR}/cmake/modules/AutoVersion.cmake)
+# set(VERSION_FILE ${CMAKE_SOURCE_DIR}/cmake/include/version.h)
+# include(${CMAKE_SOURCE_DIR}/cmake/modules/AutoVersion.cmake)
 
 install(
     TARGETS ${PROJECT_NAME}

@@ -140,8 +140,8 @@ void MainWindow::closeSerialPort()
 
 void MainWindow::about()
 {
-    QMessageBox::about(this, tr("About Alphabet"),
-                       tr("<b>Alphabet</b> is a hardware device firmware"
+    QMessageBox::about(this, tr("About LZXConsole"),
+                       tr("<b>LZXConsole</b> is a hardware device firmware"
                           "management and communications tool by LZX Industries."));
 }
 
